@@ -7,6 +7,7 @@ public class PowerCellCollectable : MonoBehaviour
 {
     private GameObject _shooter;
     public AudioClip collectSound; // sound played when cell collected
+    public InventoryItem inventoryItem;
     
     // Start is called before the first frame update
     void Start()
@@ -28,10 +29,17 @@ public class PowerCellCollectable : MonoBehaviour
         {
             // play pickup sound
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            
             // increment cells held
-            _shooter.GetComponent<Shooter>().IncrementCellsHeld();
-            // destroy pickup item so player can only collect one
-            Destroy(gameObject);
+            //_shooter.GetComponent<Shooter>().IncrementCellsHeld();
+            var inventory = other.transform.GetComponent<InventoryHolder>();
+            
+            // only destroy the game object if the item was added to the inventory
+            if (inventory.Inventory.AddToInventory(inventoryItem, 1))
+            {
+                // destroy pickup item so player can only collect one
+                Destroy(gameObject);
+            }
         }
     }
 }
