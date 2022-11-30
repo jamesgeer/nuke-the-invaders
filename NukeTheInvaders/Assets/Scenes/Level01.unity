@@ -1545,7 +1545,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1264833946912854, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
   m_PrefabInstance: {fileID: 642487349}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &846220431
+--- !u!114 &846220436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powercell: {fileID: 7483051751031767828, guid: 22b3c2915574549c6819f3b3ca527051, type: 3}
-  no_cell: 0
+  noCell: 1
   throwSound: {fileID: 8300000, guid: 471ad32afe0e845cb9ab31b2e742d0a3, type: 3}
   throwSpeed: 20
 --- !u!1 &904388576

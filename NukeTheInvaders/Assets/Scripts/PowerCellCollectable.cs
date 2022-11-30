@@ -11,7 +11,8 @@ public class PowerCellCollectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _shooter = GetComponent<Shooter>();
+        _shooter = GameObject.Find("Player Camera");
+        Debug.Log(_shooter.GetComponent<Shooter>().noCell);
     }
 
     private void Update()
@@ -28,7 +29,7 @@ public class PowerCellCollectable : MonoBehaviour
             // play pickup sound
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
             // increment cells held
-            _shooter.IncrementCellsHeld();
+            _shooter.GetComponent<Shooter>().IncrementCellsHeld();
             // destroy pickup item so player can only collect one
             Destroy(gameObject);
         }
