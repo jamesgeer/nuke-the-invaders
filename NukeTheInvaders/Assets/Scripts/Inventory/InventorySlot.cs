@@ -56,10 +56,11 @@ public class InventorySlot
     }
 
     /**
-     * returns true if the stack is full, false otherwise
+     * returns true if the amount to add plus the current quantity is equal to, or greater than the current
+     * maximum stack size
      */
     public bool IsStackFull(int amountToAdd)
     {
-        return quantity + amountToAdd == item.maxStackSize;
+        return quantity + amountToAdd > item.maxStackSize;
     }
 }

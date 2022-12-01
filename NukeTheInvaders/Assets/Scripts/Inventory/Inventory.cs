@@ -36,8 +36,81 @@ public class Inventory
 
     public bool AddToInventory(InventoryItem item, int amount)
     {
-        slots[0].AddItemToSlot(item, amount);
-        return true;
+        // check if the inventory already contains this item and if so,
+        // see if there is space left in the stack
+        if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
+        {
+            // loop over our slots that contain the item
+            foreach (var slot in slotsWithItem)
+            {
+                // if the amount we want to add does not make the stack full, then increase item quantity
+                if (!slot.IsStackFull(amount))
+                {
+                    slot.IncreaseQuantity(amount); 
+                    onSlotChange?.Invoke(slot);
+                    return true;
+                }
+            }
+        }
+        
+        // check if the inventory has a free slot and if so place item in the first
+        // available one
+        if (HasFreeSlot(out InventorySlot freeSlot))
+        {
+            freeSlot.AddItemToSlot(item, amount);
+            onSlotChange?.Invoke(freeSlot);
+            return true;
+        }
+
+        return false;
     }
 
+    /**
+     * check if the inventory contains the item and if it does, returns a list of slots
+     * that have the item, otherwise, returns false
+     */
+    public bool ContainsItem(InventoryItem item, out List<InventorySlot> slotsWithItem)
+    {
+        // new list to contain all slots that have the item
+        List<InventorySlot> itemSlots = new List<InventorySlot>();
+        
+        // loop over our inventory sots
+        foreach (var slot in slots)
+        {
+            // if the slot contains the item
+            if (slot.Item == item)
+            {
+                // add the slot to our "itemSlots" list
+                itemSlots.Add(slot);
+            }
+        }
+
+        // check if the list has any slots, if it does the the item is in our inventory
+        if (itemSlots.Count > 0)
+        {
+            // send to the list to our "out" value
+            slotsWithItem = itemSlots;
+            return true;
+        }
+
+        // the item is not in our inventory
+        slotsWithItem = null;
+        return false;
+    }
+
+    public bool HasFreeSlot(out InventorySlot freeSlot)
+    {
+        // loop over our inventory sots
+        foreach (var slot in slots)
+        {
+            if (slot.Item == null)
+            {
+                freeSlot = slot;
+                return true;
+            }
+        }
+
+        freeSlot = null;
+        return false;
+    }
 }

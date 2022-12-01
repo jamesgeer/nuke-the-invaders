@@ -27,16 +27,15 @@ public class PowerCellCollectable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // play pickup sound
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
-            
-            // increment cells held
-            //_shooter.GetComponent<Shooter>().IncrementCellsHeld();
+            // access player inventory
             var inventory = other.transform.GetComponent<InventoryHolder>();
             
-            // only destroy the game object if the item was added to the inventory
+            // play pickup sound and destroy item if item was added to inventory
             if (inventory.Inventory.AddToInventory(inventoryItem, 1))
             {
+                // play pickup sound
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+                
                 // destroy pickup item so player can only collect one
                 Destroy(gameObject);
             }
