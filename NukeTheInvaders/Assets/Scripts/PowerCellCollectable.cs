@@ -12,7 +12,7 @@ public class PowerCellCollectable : MonoBehaviour
     void Start()
     {
         _shooter = GameObject.Find("Player Camera");
-        Debug.Log(_shooter.GetComponent<Shooter>().noCell);
+        Debug.Log(_shooter.GetComponent<Shooter>().noRocket);
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class PowerCellCollectable : MonoBehaviour
             // play pickup sound
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
             // increment cells held
-            _shooter.GetComponent<Shooter>().IncrementCellsHeld();
+            _shooter.GetComponent<Shooter>().IncrementRocketsHeld();
             // destroy pickup item so player can only collect one
             Destroy(gameObject);
         }

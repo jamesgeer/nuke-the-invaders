@@ -10929,15 +10929,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846220426}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13656a2b2d3bb4cb09a035b1ebd5298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powercell: {fileID: 7483051751031767828, guid: 22b3c2915574549c6819f3b3ca527051, type: 3}
-  noCell: 1
-  throwSound: {fileID: 8300000, guid: 471ad32afe0e845cb9ab31b2e742d0a3, type: 3}
-  throwSpeed: 20
+  rocket: {fileID: 4128777173457071272, guid: 0f3693f096244bb4a965272f9cd25c84, type: 3}
+  noRocket: 30
+  shootSound: {fileID: 8300000, guid: 9877109791b0d124680f37509778b797, type: 3}
+  shootSpeed: 50
 --- !u!4 &846220437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288335847994348, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}
