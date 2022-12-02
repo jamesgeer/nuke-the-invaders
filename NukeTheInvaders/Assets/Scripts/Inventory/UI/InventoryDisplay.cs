@@ -18,7 +18,6 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     protected virtual void Start()
     {
-        throw new NotImplementedException();
     }
 
     public abstract void AssignSlot(Inventory inventory);
