@@ -5,11 +5,19 @@ using TMPro;
 
 public class InventorySlotUI : MonoBehaviour
 {
+    // item image/sprite
     [SerializeField] private Image itemSprite;
+    
+    // number of items in stack
     [SerializeField] private TextMeshProUGUI itemCount;
+    
+    // inventory slot in which the item has been assigned to
     [SerializeField] private InventorySlot assignedInventorySlot;
 
+    // ui slot button
     private Button button;
+    
+    // parent class, the wrapper containing the slot(s)
     private InventoryUI InventoryUI { get; set; }
     
     // getter for assigned inventory slot
@@ -54,6 +62,9 @@ public class InventorySlotUI : MonoBehaviour
         }
     }
 
+    /**
+     * initial state of our empty slot
+     */
     public void ClearSlot()
     {
         assignedInventorySlot?.ClearSlot();

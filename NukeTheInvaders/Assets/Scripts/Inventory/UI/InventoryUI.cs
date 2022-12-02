@@ -9,22 +9,31 @@ using UnityEngine.Events;
  */
 public class InventoryUI : MonoBehaviour
 {
-    private Inventory inventory;
-    private Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
-
+    // the holder of our inventory (player/npc/object/etc)
     [SerializeField] private InventoryHolder inventoryHolder;
-    [SerializeField] private InventorySlotUI[] slots;
+    
+    // array containing assigned inventory ui slots (from the editor)
+    [SerializeField] private InventorySlotUI[] slotsUI;
+    
+    // our inventory
+    private Inventory inventory;
+    
+    // dictionary with the ui slots as the key and backend slots as the value
+    private Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
 
     public void Start()
     {
-        // if the inventory holder has been assigned in the inspector
+        // check to make sure the inventory holder has been assigned
         if (inventoryHolder != null)
         {
+            // assign the inventory variable to the inventory holder's inventory
             inventory = inventoryHolder.Inventory;
+            
+            // 
             inventory.onSlotChange += UpdateSlot;
+            
+            AssignSlot(inventory);
         }
-        
-        AssignSlot(inventory);
     }
 
     private void AssignSlot(Inventory inventory)
@@ -33,8 +42,8 @@ public class InventoryUI : MonoBehaviour
 
         for (int i = 0; i < inventory.InventorySize; i++)
         {
-            slotsDictionary.Add(slots[i], inventory.Slots[i]);
-            slots[i].InitialiseSlot(inventory.Slots[i]);
+            slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
+            slotsUI[i].InitialiseSlot(inventory.Slots[i]);
         }
     }
 
