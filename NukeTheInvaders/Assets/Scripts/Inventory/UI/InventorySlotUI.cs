@@ -19,46 +19,50 @@ public class InventorySlotUI : MonoBehaviour
     
     // parent class, the wrapper containing the slot(s)
     private InventoryUI InventoryUI { get; set; }
-    
-    // getter for assigned inventory slot
-    public InventorySlot AssignedInventorySlot => assignedInventorySlot;
 
+    /**
+     * initialise variables
+     */
     private void Awake()
     {
+        // slot is initially empty
         ClearSlot();
 
+        // get slot button and assign the click event listener
         button = GetComponent<Button>();
         button?.onClick.AddListener(OnUISlotClick);
 
+        // assign reference to ui wrapper component (e.g. player hotbar)
         InventoryUI = transform.parent.GetComponent<InventoryUI>();
     }
 
+    /**
+     * assign an item to the slot
+     */
     public void InitialiseSlot(InventorySlot slot)
     {
         assignedInventorySlot = slot;
         UpdateUISlot(slot);
     }
 
+    /**
+     * updates slot appearance
+     */
     public void UpdateUISlot(InventorySlot slot)
     {
+        // make sure slot has an item
         if (slot.Item != null)
         {
+            // display item sprite and changes slot color in the ui
             itemSprite.sprite = slot.Item.icon;
             itemSprite.color = Color.white;
             
+            // displays the item count in the ui
             itemCount.text = slot.StackSize.ToString();
         }
         else
         {
             ClearSlot();
-        }
-    }
-
-    public void RefreshUISlot()
-    {
-        if (assignedInventorySlot != null)
-        {
-            UpdateUISlot(assignedInventorySlot);
         }
     }
 
@@ -73,6 +77,9 @@ public class InventorySlotUI : MonoBehaviour
         itemCount.text = "";
     }
 
+    /**
+     * click event for when a slot is clicked
+     */
     public void OnUISlotClick()
     {
         InventoryUI?.SlotClicked(this);

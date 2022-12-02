@@ -16,7 +16,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private InventorySlotUI[] slotsUI;
     
     // our inventory
-    private Inventory inventory;
+    private Inventory _inventory;
     
     // dictionary with the ui slots as the key and backend slots as the value
     private Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
@@ -27,39 +27,55 @@ public class InventoryUI : MonoBehaviour
         if (inventoryHolder != null)
         {
             // assign the inventory variable to the inventory holder's inventory
-            inventory = inventoryHolder.Inventory;
+            _inventory = inventoryHolder.Inventory;
             
-            // 
-            inventory.onSlotChange += UpdateSlot;
+            // append UpdateSlot to onSlotChange event (trigger on inventory change)
+            _inventory.onSlotChange += UpdateSlot;
             
-            AssignSlot(inventory);
+            AssignSlot(_inventory);
         }
     }
 
+    /**
+     * each frontend slot is assigned a backend slot, there are stored a dictionary
+     * to keep both in sync
+     */
     private void AssignSlot(Inventory inventory)
     {
+        // create a new dictionary to contain our backend and frontend slots
         slotsDictionary = new Dictionary<InventorySlotUI, InventorySlot>();
 
+        // loop over the slots in the inventory
         for (int i = 0; i < inventory.InventorySize; i++)
         {
+            // add empty slots to the dictionary
             slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
+            
+            // initialise slots to their default empty values
             slotsUI[i].InitialiseSlot(inventory.Slots[i]);
         }
     }
 
+    /**
+     * update slot, keeping the frontend and backend slots in sync
+     */
     private void UpdateSlot(InventorySlot slotToUpdate)
     {
+        // loop over slots in dictionary
         foreach (var slot in slotsDictionary)
         {
-            // slot value is the "backend" inventory slot
+            // find backend slot that matches the frontend value
             if (slot.Value == slotToUpdate)
             {
-                // slot key is the "frontend" inventory slot
+                // update ui slot to new value
                 slot.Key.UpdateUISlot(slotToUpdate);
             }
         }
     }
 
+    /**
+     * action performed when an inventory slot is clicked
+     */
     public void SlotClicked(InventorySlotUI clickedSlot)
     {
         Debug.Log("Slot clicked");
