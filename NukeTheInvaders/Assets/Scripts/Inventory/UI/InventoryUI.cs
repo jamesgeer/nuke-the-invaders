@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
     private Inventory _inventory;
     
     // dictionary with the ui slots as the key and backend slots as the value
-    private Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
+    private Dictionary<InventorySlotUI, InventorySlot> _slotsDictionary;
 
     public void Start()
     {
@@ -43,13 +43,13 @@ public class InventoryUI : MonoBehaviour
     private void AssignSlot(Inventory inventory)
     {
         // create a new dictionary to contain our backend and frontend slots
-        slotsDictionary = new Dictionary<InventorySlotUI, InventorySlot>();
+        _slotsDictionary = new Dictionary<InventorySlotUI, InventorySlot>();
 
         // loop over the slots in the inventory
         for (int i = 0; i < inventory.InventorySize; i++)
         {
             // add empty slots to the dictionary
-            slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
+            _slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
             
             // initialise slots to their default empty values
             slotsUI[i].InitialiseSlot(inventory.Slots[i]);
@@ -62,7 +62,7 @@ public class InventoryUI : MonoBehaviour
     private void UpdateSlot(InventorySlot slotToUpdate)
     {
         // loop over slots in dictionary
-        foreach (var slot in slotsDictionary)
+        foreach (var slot in _slotsDictionary)
         {
             // find backend slot that matches the frontend value
             if (slot.Value == slotToUpdate)

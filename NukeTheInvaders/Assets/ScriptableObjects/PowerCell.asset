@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4e5d45a388e546d584bf83d9cb99d55, type: 3}
-  m_Name: Test
+  m_Name: PowerCell
   m_EditorClassIdentifier: 
   id: 0
   name: My Test Item
