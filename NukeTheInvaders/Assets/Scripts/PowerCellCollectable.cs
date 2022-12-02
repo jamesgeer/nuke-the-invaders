@@ -13,7 +13,7 @@ public class PowerCellCollectable : MonoBehaviour
     void Start()
     {
         _shooter = GameObject.Find("Player Camera");
-        Debug.Log(_shooter.GetComponent<Shooter>().noCell);
+        Debug.Log(_shooter.GetComponent<Shooter>().noRocket);
     }
 
     private void Update()
@@ -27,18 +27,12 @@ public class PowerCellCollectable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // access player inventory
-            var inventory = other.transform.GetComponent<InventoryHolder>();
-            
-            // play pickup sound and destroy item if item was added to inventory
-            if (inventory.Inventory.AddToInventory(inventoryItem, 1))
-            {
-                // play pickup sound
-                AudioSource.PlayClipAtPoint(collectSound, transform.position);
-                
-                // destroy pickup item so player can only collect one
-                Destroy(gameObject);
-            }
+            // play pickup sound
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            // increment cells held
+            _shooter.GetComponent<Shooter>().IncrementRocketsHeld();
+            // destroy pickup item so player can only collect one
+            Destroy(gameObject);
         }
     }
 }
