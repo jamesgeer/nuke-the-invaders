@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject rocket; //link to the rocket prefab
+    public GameObject rocketObj; //link to the rocket prefab
     public int noRocket = 3; //number of rockets possessed
-    public AudioClip shootSound; //throw sound
-    public float shootSpeed= 20;//throw speed
+    public AudioClip shootSound; //rocket launch sound
+    public float maxSpeed= 60;//max rocket speed
+    public float rocketAcceleration = 1;
 
     // Update is called once per frame
     void Update()
@@ -22,14 +23,18 @@ public class Shooter : MonoBehaviour
             AudioSource.PlayClipAtPoint(shootSound, transform.position);
             
             //instantiate the rocket as game object (also make it point forward)
-            GameObject cell = Instantiate(rocket, transform.position, transform.rotation * Quaternion.Euler(95f, 0f, 0f)) as GameObject;
+            GameObject rocket = Instantiate(rocketObj, transform.position, transform.rotation * Quaternion.Euler(95f, 0f, 0f)) as GameObject;
             //ask physics engine to ignore collison between power cell and our FPSController
             
             Physics.IgnoreCollision(transform.root.GetComponent<Collider>(),
-                cell.GetComponent<Collider>(), true);
+                rocket.GetComponent<Collider>(), true);
             
             //give the powerCell a velocity so that it moves forward
-            cell.GetComponent<Rigidbody>().velocity = transform.forward * shootSpeed;
+            //rocket.GetComponent<Rigidbody>().velocity = transform.forward * maxSpeed;
+
+            //if (rocketAcceleration < maxSpeed) {
+            //    rocketAcceleration++;
+            //}
         }
     }
 

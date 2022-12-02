@@ -10934,10 +10934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13656a2b2d3bb4cb09a035b1ebd5298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocket: {fileID: 4128777173457071272, guid: 0f3693f096244bb4a965272f9cd25c84, type: 3}
+  rocketObj: {fileID: 4128777173457071272, guid: 0f3693f096244bb4a965272f9cd25c84, type: 3}
   noRocket: 30
   shootSound: {fileID: 8300000, guid: 9877109791b0d124680f37509778b797, type: 3}
-  shootSpeed: 50
+  maxSpeed: 60
+  rocketAcceleration: 1
 --- !u!4 &846220437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288335847994348, guid: 2e62f5703e5f8d2488a5e1bc8433be41, type: 3}

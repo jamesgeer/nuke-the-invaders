@@ -7,12 +7,22 @@ public class Rocket : MonoBehaviour
 {
 	public GameObject explode;
 	//private GameObject tripod;
-	float removeTime = 3.0f;
-	// Use this for initialization
+	float removeTime = 2.0f;
+
+	public float maxSpeed = 60; //max rocket speed
+	public float rocketAcceleration = 1;
 	void Start()
 	{
 		//tripod = GameObject.Find("tripod");//find the tripod
 		Destroy(gameObject, removeTime); //destroy the object after a set amount of time
+	}
+	private void Update()
+	{
+		transform.Translate(0, rocketAcceleration * Time.deltaTime, 0);
+		if (rocketAcceleration < maxSpeed)
+		{
+			rocketAcceleration += 0.3f;
+		}
 	}
 	void OnCollisionEnter(Collision other)
 	{
