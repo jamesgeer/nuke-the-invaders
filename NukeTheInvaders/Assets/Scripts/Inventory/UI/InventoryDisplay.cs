@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,11 +10,16 @@ public abstract class InventoryDisplay : MonoBehaviour
 {
     [SerializeField] private MouseItem mouseItem;
     
-    private Inventory inventory;
-    private Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
+    protected Inventory inventory;
+    protected Dictionary<InventorySlotUI, InventorySlot> slotsDictionary;
 
     public Inventory Inventory => inventory;
     public Dictionary<InventorySlotUI, InventorySlot> SlotsDictionary => slotsDictionary;
+
+    protected virtual void Start()
+    {
+        throw new NotImplementedException();
+    }
 
     public abstract void AssignSlot(Inventory inventory);
 

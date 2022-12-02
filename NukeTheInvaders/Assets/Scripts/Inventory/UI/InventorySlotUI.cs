@@ -10,7 +10,8 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField] private InventorySlot assignedInventorySlot;
 
     private Button button;
-
+    private InventoryDisplay ParentDisplay { get; set; }
+    
     // getter for assigned inventory slot
     public InventorySlot AssignedInventorySlot => assignedInventorySlot;
 
@@ -18,11 +19,13 @@ public class InventorySlotUI : MonoBehaviour
     {
         ClearSlot();
 
-        button.GetComponent<Button>();
+        button = GetComponent<Button>();
         button?.onClick.AddListener(OnUISlotClick);
+
+        ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
     }
 
-    public void Init(InventorySlot slot)
+    public void InitialiseSlot(InventorySlot slot)
     {
         assignedInventorySlot = slot;
         UpdateUISlot(slot);
@@ -61,6 +64,6 @@ public class InventorySlotUI : MonoBehaviour
 
     public void OnUISlotClick()
     {
-        
+        ParentDisplay?.SlotClicked(this);
     }
 }
