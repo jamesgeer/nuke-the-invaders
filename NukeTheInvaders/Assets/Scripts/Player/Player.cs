@@ -17,9 +17,10 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-        currentAmmoText.text = noRocket.ToString();
-        maxAmmoText.text = "/ " + maxAmmo.ToString();
+        // currentAmmoText.text = noRocket.ToString();
+        // maxAmmoText.text = "/ " + maxAmmo.ToString();
 	}
+    
 	// Update is called once per frame
 	void Update()
     {
@@ -35,8 +36,7 @@ public class Player : MonoBehaviour
             GameObject rocket = Instantiate(rocketObj, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f)) as GameObject;
             //ask physics engine to ignore collison between power cell and our FPSController
             
-            Physics.IgnoreCollision(transform.root.GetComponent<Collider>(),
-                rocket.GetComponent<Collider>(), true);
+            Physics.IgnoreCollision(transform.root.GetComponent<Collider>(), rocket.GetComponent<Collider>(), true);
         }
     }
 

@@ -25,10 +25,10 @@ public class Rocket : MonoBehaviour
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Enemy"))
-			{
-				//reduce the ship's health
-				other.gameObject.GetComponent<AlienShip>().ReduceHealth();
-			}
+		{
+			//reduce the ship's health
+			other.gameObject.GetComponent<AlienShip>().ReduceHealth();
+		}
 		Destroy(gameObject);//destroy self
 	}
 	void OnDestroy()
