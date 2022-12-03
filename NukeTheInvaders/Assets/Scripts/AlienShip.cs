@@ -8,4 +8,5 @@ public abstract class AlienShip : MonoBehaviour
 
     public abstract void ReduceHealth();
     public abstract void OnDestroy();
+    public abstract void StartMoving(Vector3 shipDirection);
 }

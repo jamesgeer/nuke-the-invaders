@@ -7,13 +7,12 @@ public class ScoutShip : AlienShip
     private Rigidbody rb;
     private float speed = 10f;
 
-    void Start()
+	void Start()
     {
         this._health = 1;
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.forward * speed;
     }
 
+    
     public override void ReduceHealth()
     {
         _health--;
@@ -26,6 +25,12 @@ public class ScoutShip : AlienShip
 	{
         // add functionality
 	}
+	public override void StartMoving(Vector3 shipDirection)
+	{
+        rb = GetComponent<Rigidbody>();
+        Debug.Log(shipDirection);
+        rb.velocity = shipDirection * speed;
+    }
 
 }
 

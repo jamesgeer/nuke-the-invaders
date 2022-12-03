@@ -7,13 +7,13 @@ public class SpawnWave : MonoBehaviour
     public GameObject scoutShip;
     private float spawnTime;
     private int spawnAmount;
-    // Start is called before the first frame update
-    void Start()
-    {
+    private Vector3 shipDirection;
+    public void startSpawn(Vector3 shipDirection) {
         // wait between 1 and 6 seconds for spawning initially
         spawnTime = Random.Range(1.0f, 6.0f);
-        // spawn 1-3 ships
-        spawnAmount = Random.Range(1,4);
+        // spawn 1-3 ships initially
+        spawnAmount = Random.Range(1, 4);
+        this.shipDirection = shipDirection;
         Debug.Log(spawnAmount);
         //Start to spawn enemies
         StartCoroutine(SpawnShips(spawnTime, spawnAmount));
@@ -27,27 +27,28 @@ public class SpawnWave : MonoBehaviour
 
         // calculate min x, min y and min z compared to the spawner's position
 
-        float minX = transform.position.x - 15.0f ;
-        float maxX = transform.position.x + 15.0f ;
-        float minY = 23.0f; // this is a good height for gameplay
+        float minX = transform.position.x - 20.0f ;
+        float maxX = transform.position.x + 20.0f ;
+        float minY = 23.0f; // this is a good height for game play
         float maxY = 40.0f;
-        float minZ = transform.position.z - 5.0f ;
-        float maxZ = transform.position.z + 5.0f;
+        float minZ = transform.position.z - 2.0f ;
+        float maxZ = transform.position.z + 2.0f;
 
-        //Spawn prefab at random position near this spawner
-        Instantiate(prefab, new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ)), transform.rotation);
+        //Spawn ship at random position near this spawner
+        GameObject ship = Instantiate(prefab, new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ)), transform.rotation);
+        ship.GetComponent<AlienShip>().StartMoving(this.shipDirection);
         spawnAmount--;
         // wait between 1 and 6 seconds for spawning
         spawnTime = Random.Range(1.0f, 6.0f);
         //Start the spawn again
-        if (spawnAmount > 0) {
+        if (spawnAmount > 0)
+        {
             StartCoroutine(SpawnShips(spawnTime, spawnAmount));
         }
+        else {
+            // deactivate the spawner once it is finished
+            gameObject.SetActive(false);
+        }
 
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
