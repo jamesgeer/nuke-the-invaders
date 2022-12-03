@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Shooter : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public GameObject rocketObj; //link to the rocket prefab
     public TextMeshProUGUI currentAmmoText; //link to the rocket prefab
