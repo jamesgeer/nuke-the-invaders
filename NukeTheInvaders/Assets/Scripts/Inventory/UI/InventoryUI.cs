@@ -75,9 +75,17 @@ public class InventoryUI : MonoBehaviour
 
     /**
      * action performed when an inventory slot is clicked
+     * TODO: if slot clicked with item, make that the active item
      */
-    public void SlotClicked(InventorySlotUI clickedSlot)
+    public void SlotClicked(InventorySlotUI clickedUISlot)
     {
-        Debug.Log("Slot clicked");
+        if (clickedUISlot.AssignedInventorySlot.Item != null)
+        {
+            Debug.Log(clickedUISlot.AssignedInventorySlot.Item.itemName);
+        }
+        else
+        {
+            Debug.Log("No item");
+        }
     }
 }

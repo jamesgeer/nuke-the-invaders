@@ -19,6 +19,9 @@ public class InventorySlotUI : MonoBehaviour
     
     // parent class, the wrapper containing the slot(s)
     private InventoryUI InventoryUI { get; set; }
+    
+    // getter for assigned inventory slot
+    public InventorySlot AssignedInventorySlot => assignedInventorySlot;
 
     /**
      * initialise variables
