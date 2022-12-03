@@ -32,7 +32,7 @@ public class Shooter : MonoBehaviour
             AudioSource.PlayClipAtPoint(shootSound, transform.position);
             
             //instantiate the rocket as game object (also make it point forward)
-            GameObject rocket = Instantiate(rocketObj, transform.position, transform.rotation * Quaternion.Euler(95f, 0f, 0f)) as GameObject;
+            GameObject rocket = Instantiate(rocketObj, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f)) as GameObject;
             //ask physics engine to ignore collison between power cell and our FPSController
             
             Physics.IgnoreCollision(transform.root.GetComponent<Collider>(),
