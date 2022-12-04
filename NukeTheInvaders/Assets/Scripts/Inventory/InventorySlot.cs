@@ -63,4 +63,12 @@ public class InventorySlot
     {
         return quantity + amountToAdd > item.maxStackSize;
     }
+
+    /**
+     * returns true if amount to take from stack goes below one
+     */
+    public bool IsStackEmpty(int amountToDecrease)
+    {
+        return quantity - amountToDecrease < 1;
+    }
 }

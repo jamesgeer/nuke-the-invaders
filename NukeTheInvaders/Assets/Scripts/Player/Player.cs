@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	private InventoryHolder _inventoryHolder;
 	private Inventory _inventory;
 	
+	[SerializeField] private GameObject mainWeapon;
 	[SerializeField] private InventoryItem startItem;
 	[SerializeField] private int startItemAmount;
 	

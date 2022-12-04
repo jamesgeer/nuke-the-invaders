@@ -65,6 +65,44 @@ public class Inventory
         return false;
     }
 
+    public bool TakeFromInventory(InventoryItem item, int amountToTake)
+    {
+        // check inventory contains this item and if so grab slots with it
+        if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
+        {
+            // loop over slots that contain the item
+            foreach (var slot in slotsWithItem)
+            {
+                // if amount to take is greater than the stack size then see if there is enough
+                // to take from another stack
+                if (amountToTake > slot.StackSize)
+                {
+                    // reduce amount to take by the items taken from this slot
+                    amountToTake -= slot.StackSize;
+                    
+                    // all items taken from slot so set to empty state
+                    slot.ClearSlot();
+                } 
+                else if (amountToTake == slot.StackSize)
+                {
+                    slot.ClearSlot();
+                    return true;
+                }
+                else
+                {
+                    slot.DecreaseQuantity(amountToTake);
+                    return true;
+                }
+                
+                // slot item changed so update ui
+                onSlotChange?.Invoke(slot);
+            }
+        }
+
+        // this item is not in the inventory
+        return false;
+    }
+
     /**
      * check if the inventory contains the item and if it does, returns a list of slots
      * that have the item, otherwise, returns false
