@@ -6,8 +6,12 @@ using UnityEngine;
 public class AmmoCollectable : MonoBehaviour
 {
     private GameObject _player;
-    public AudioClip collectSound; // sound played when cell collected
-    public InventoryItem inventoryItem;
+    
+    // sound played when cell collected
+    [SerializeField] private AudioClip collectSound; 
+    
+    // item information
+    [SerializeField] private InventoryItem inventoryItem;
 
     // Start is called before the first frame update
     void Start()

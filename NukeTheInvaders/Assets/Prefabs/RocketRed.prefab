@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4124184413758830144
 MeshFilter:
@@ -100,7 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b298d8f8f3cd432892841f2bf7ba664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryItem: {fileID: 11400000, guid: 9332a7a1bbbf048edb7410ff452cce52, type: 2}
   explode: {fileID: 100010, guid: a06b15e186fe87a4ca02e1b828773ae2, type: 3}
+  maxSpeed: 60
+  rocketAcceleration: 1
 --- !u!54 &4464085137336855667
 Rigidbody:
   m_ObjectHideFlags: 0

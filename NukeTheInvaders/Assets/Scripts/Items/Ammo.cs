@@ -14,7 +14,7 @@ public class Ammo : MonoBehaviour
 
 	public float maxSpeed = 60; //max rocket speed
 	public float rocketAcceleration = 1;
-	
+
 	void Start()
 	{
 		// light the fuse....🔥

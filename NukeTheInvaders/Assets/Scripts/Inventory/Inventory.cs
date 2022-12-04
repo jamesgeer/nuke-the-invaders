@@ -65,11 +65,14 @@ public class Inventory
         return false;
     }
 
-    public bool TakeFromInventory(InventoryItem item, int amountToTake)
+    public bool TakeFromInventory(InventoryItem item, int amount)
     {
         // check inventory contains this item and if so grab slots with it
         if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
         {
+            // copy amount in the case that we need to pull from different stacks
+            int amountToTake = amount;
+            
             // loop over slots that contain the item
             foreach (var slot in slotsWithItem)
             {
