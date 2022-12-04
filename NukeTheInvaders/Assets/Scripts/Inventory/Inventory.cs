@@ -85,20 +85,20 @@ public class Inventory
                     
                     // all items taken from slot so set to empty state
                     slot.ClearSlot();
+                    onSlotChange?.Invoke(slot);
                 } 
                 else if (amountToTake == slot.StackSize)
                 {
                     slot.ClearSlot();
+                    onSlotChange?.Invoke(slot);
                     return true;
                 }
                 else
                 {
                     slot.DecreaseQuantity(amountToTake);
+                    onSlotChange?.Invoke(slot);
                     return true;
                 }
-                
-                // slot item changed so update ui
-                onSlotChange?.Invoke(slot);
             }
         }
 
