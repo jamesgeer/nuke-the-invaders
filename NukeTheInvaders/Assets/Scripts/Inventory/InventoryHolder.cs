@@ -12,8 +12,6 @@ public class InventoryHolder : MonoBehaviour
     // inventory getter
     public Inventory Inventory => inventory;
 
-    public static UnityAction<Inventory> onDynamicInventoryDisplayRequested;
-
     /**
      * using awake for setting up the reference between objects, acts kind of like a constructor
      */
