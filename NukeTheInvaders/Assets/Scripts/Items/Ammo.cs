@@ -3,17 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rocket : MonoBehaviour
+/**
+ * class for dealing with the weapon ammo
+ * as we only have one weapon, the ammo is currently just rockets
+ */
+public class Ammo : MonoBehaviour
 {
 	public GameObject explode;
 	float removeTime = 5.0f; // essentially the fuse of the rocket
 
 	public float maxSpeed = 60; //max rocket speed
 	public float rocketAcceleration = 1;
+	
 	void Start()
 	{
+		// light the fuse....🔥
 		Destroy(gameObject, removeTime); //destroy the object after a set amount of time
 	}
+	
 	private void Update()
 	{
 		transform.Translate(0, rocketAcceleration * Time.deltaTime, 0);
@@ -22,6 +29,7 @@ public class Rocket : MonoBehaviour
 			rocketAcceleration += 0.3f;
 		}
 	}
+	
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Enemy"))
@@ -31,6 +39,7 @@ public class Rocket : MonoBehaviour
 		}
 		Destroy(gameObject);//destroy self
 	}
+	
 	void OnDestroy()
 	{
 		GameObject explosion = Instantiate(explode, transform.position, transform.rotation);

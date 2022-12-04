@@ -37,7 +37,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     /**
-     * each frontend slot is assigned a backend slot, there are stored a dictionary
+     * each frontend slot is assigned a backend slot, these are stored a dictionary
      * to keep both in sync
      */
     private void AssignSlot(Inventory inventory)
