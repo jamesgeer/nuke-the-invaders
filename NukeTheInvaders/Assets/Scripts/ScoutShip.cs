@@ -13,9 +13,9 @@ public class ScoutShip : AlienShip
     }
 
     
-    public override void ReduceHealth()
+    public override void ReduceHealth(int damage)
     {
-        _health--;
+        _health -= damage;
         if (_health <= 0)
         {
             Destroy(gameObject);

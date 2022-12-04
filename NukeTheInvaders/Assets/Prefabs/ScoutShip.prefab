@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1969504788246218714}
   - component: {fileID: 7488202444050032395}
   - component: {fileID: 7488202444050032396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScoutShip
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6143633175260319956
 MeshFilter:
@@ -98,7 +98,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: 2147483647
   m_Mesh: {fileID: -2819780558708548613, guid: 5fbf3d84df198c345858846d86507590, type: 3}
 --- !u!54 &7488202444050032395
 Rigidbody:

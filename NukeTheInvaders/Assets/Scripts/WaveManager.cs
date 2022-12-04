@@ -6,22 +6,20 @@ public class WaveManager : MonoBehaviour
 {
     private GameObject waveSpawner;
     private Vector3 shipDirection;
-    private int currentWave { get; set; }
     private Vector3[] spawnLocations = { new Vector3(15, 40, -135),
                                          new Vector3(15, 40, 105),
                                          new Vector3(-100, 40, -15),
                                          new Vector3(155, 40, -15) };
     private GameObject endZone;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentWave = 1;
         waveSpawner = GameObject.FindGameObjectWithTag("WaveSpawner");
         endZone = GameObject.FindGameObjectWithTag("ShipDestination");
-        startWave();
     }
 
-    public void startWave() {
+    public void startWave(int wave) {
         // randomly select a position for the wave to come from
         int locationIndex = Random.Range(0, 4);
         waveSpawner.transform.position = spawnLocations[locationIndex];
@@ -52,7 +50,7 @@ public class WaveManager : MonoBehaviour
                 break;
         }
 
-        waveSpawner.GetComponent<SpawnWave>().startSpawn(shipDirection);
+        waveSpawner.GetComponent<SpawnWave>().startSpawn(shipDirection, wave);
         endZone.SetActive(true);
     }
 }
