@@ -4911,6 +4911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b298d8f8f3cd432892841f2bf7ba664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explode: {fileID: 0}
+  explode: {fileID: 100010, guid: a06b15e186fe87a4ca02e1b828773ae2, type: 3}
   maxSpeed: 45
   rocketAcceleration: 1
