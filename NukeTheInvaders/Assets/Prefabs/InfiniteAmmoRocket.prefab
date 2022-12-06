@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4128777173457071272
+--- !u!1 &4304702590645054988
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4127397219294515932}
-  - component: {fileID: 4124184413758830144}
-  - component: {fileID: 4114918874393327076}
-  - component: {fileID: 5955770778697496158}
-  - component: {fileID: 4464085137336855667}
-  - component: {fileID: 2977966185639332465}
-  - component: {fileID: 5011482876843324275}
-  - component: {fileID: 8763603612578545567}
+  - component: {fileID: 4302887996055135092}
+  - component: {fileID: 4309823405226345468}
+  - component: {fileID: 4317394282766904556}
+  - component: {fileID: 57439497290738476}
+  - component: {fileID: 8493689110246887751}
+  - component: {fileID: 7527067487546952662}
+  - component: {fileID: 8925702117289002076}
+  - component: {fileID: 5188136089410685456}
   m_Layer: 0
-  m_Name: RocketRed
+  m_Name: InfiniteAmmoRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4127397219294515932
+--- !u!4 &4302887996055135092
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.51472, y: 6.51, z: -19.663574}
+  m_LocalPosition: {x: 75.038, y: 6.51, z: -19.663574}
   m_LocalScale: {x: 0.08270338, y: 0.08270338, z: 0.08270338}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4124184413758830144
+--- !u!33 &4309823405226345468
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
-  m_Mesh: {fileID: 4300000, guid: e5f0ae5b87045c94e98a3a3f91b6dc85, type: 3}
---- !u!23 &4114918874393327076
+  m_GameObject: {fileID: 4304702590645054988}
+  m_Mesh: {fileID: 4300000, guid: 0094b425812d49548913a84e817fac7e, type: 3}
+--- !u!23 &4317394282766904556
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e941d0d6425697b499256f89933a0df2, type: 2}
+  - {fileID: 2100000, guid: dadefef0edf68504b971d5e8b275586d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,28 +88,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5955770778697496158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b298d8f8f3cd432892841f2bf7ba664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explode: {fileID: 100010, guid: a06b15e186fe87a4ca02e1b828773ae2, type: 3}
-  maxSpeed: 60
-  rocketAcceleration: 1
---- !u!54 &4464085137336855667
+--- !u!54 &57439497290738476
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -119,27 +104,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &2977966185639332465
+--- !u!136 &8493689110246887751
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2793052
-  m_Height: 7.4863324
+  m_Radius: 1.2793049
+  m_Height: 5.6566706
   m_Direction: 1
-  m_Center: {x: -0.00000023841858, y: 0.47512233, z: -0.00000011920932}
---- !u!198 &5011482876843324275
+  m_Center: {x: -0.00000023841858, y: 0.3807596, z: 5.4109193e-15}
+--- !u!198 &7527067487546952662
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
@@ -4842,14 +4827,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &8763603612578545567
+--- !u!199 &8925702117289002076
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4128777173457071272}
+  m_GameObject: {fileID: 4304702590645054988}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4914,3 +4899,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5188136089410685456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304702590645054988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b298d8f8f3cd432892841f2bf7ba664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explode: {fileID: 0}
+  maxSpeed: 45
+  rocketAcceleration: 1
