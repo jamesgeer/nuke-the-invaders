@@ -4,8 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Inventory Item", menuName = "Inventory/Item")]
 public class InventoryItem : ScriptableObject
 {
-    // public int id;
+    // name of the item
     public string itemName;
+    
+    // item sprite
     public Sprite icon;
+    
+    // maximum allowed stack size for item
     public int maxStackSize;
 }

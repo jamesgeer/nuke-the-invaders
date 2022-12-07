@@ -6,8 +6,8 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
     // ammo objects that this weapon will be firing
-    [SerializeField] private GameObject RegularAmmoObject;
-    [SerializeField] private GameObject InfiniteAmmoObject;
+    [SerializeField] private GameObject regularAmmoObject;
+    [SerializeField] private GameObject infiniteAmmoObject;
 
     // which ammo this weapon can use
     [SerializeField] private InventoryItem ammoType;
@@ -52,14 +52,14 @@ public class Weapon : MonoBehaviour
             // if player has any regular ammo, shoot that
             if (_inventory.TakeFromInventory(ammoType, 1))
             {
-                FireAmmo(RegularAmmoObject);
+                FireAmmo(regularAmmoObject);
             }
             // out of regular ammo, see if they have any infinite, replenishing ammo to use
             else
             {
                 if (_infiniteAmmo && _inventory.TakeFromInventory(_infiniteAmmo, 1))
                 {
-                    FireAmmo(InfiniteAmmoObject);
+                    FireAmmo(infiniteAmmoObject);
                 }
             }
         }
