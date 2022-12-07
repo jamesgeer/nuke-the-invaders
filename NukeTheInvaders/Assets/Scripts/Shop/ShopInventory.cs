@@ -34,7 +34,7 @@ public class ShopInventory
         }
     }
 
-    public bool SellItem(InventoryItem item, int amount)
+    public bool SellItem(ShopInventoryItem shopItem, int amount)
     {
         // // check inventory contains this item and if so grab slots with it
         // if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
