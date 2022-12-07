@@ -2473,7 +2473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5057761680964475063, guid: 0ff8fc1772df6484d973b00de08298b2, type: 3}
       propertyPath: m_Name
-      value: ShopInventory
+      value: Shop Inventory
       objectReference: {fileID: 0}
     - target: {fileID: 5057761681387591760, guid: 0ff8fc1772df6484d973b00de08298b2, type: 3}
       propertyPath: m_AnchorMax.y

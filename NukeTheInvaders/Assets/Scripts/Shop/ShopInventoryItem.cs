@@ -2,7 +2,7 @@ using UnityEngine;
 
 // adds "Inventory" to the Unity "Create" menu with an option to create a new item
 [CreateAssetMenu(fileName = "Shop Item", menuName = "Shop/Item")]
-public class ShopItem : ScriptableObject
+public class ShopInventoryItem : ScriptableObject
 {
     // item data
     public InventoryItem item;
