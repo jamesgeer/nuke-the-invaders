@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
+		// refill ammo run every 10secs
 		InvokeRepeating(nameof(RefillInfiniteAmmo), 10f, 10f);
 	}
 
