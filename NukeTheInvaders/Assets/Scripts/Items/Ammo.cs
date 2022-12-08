@@ -35,7 +35,7 @@ public class Ammo : MonoBehaviour
 		if (other.gameObject.CompareTag("Enemy"))
 		{
 			//reduce the ship's health
-			other.gameObject.GetComponent<AlienShip>().ReduceHealth(1);
+			other.gameObject.GetComponent<AlienShip>().ReduceHealth();
 		}
 		Destroy(gameObject);//destroy self
 	}

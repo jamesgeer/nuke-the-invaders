@@ -13,9 +13,9 @@ public class ScoutShip : AlienShip
     }
 
     
-    public override void ReduceHealth(int damage)
+    public override void ReduceHealth()
     {
-        _health -= damage;
+        _health -= 1;
         if (_health <= 0)
         {
             Destroy(gameObject);
@@ -31,5 +31,9 @@ public class ScoutShip : AlienShip
         rb.velocity = shipDirection * speed;
     }
 
+	public override void kill()
+	{
+        Destroy(gameObject);
+    }
 }
 
