@@ -10,7 +10,7 @@ using UnityEngine;
 public class Ammo : MonoBehaviour
 {
 	public GameObject explode;
-	float removeTime = 5.0f; // essentially the fuse of the rocket
+	readonly float removeTime = 5.0f; // essentially the fuse of the rocket
 
 	public float maxSpeed = 60; //max rocket speed
 	public float rocketAcceleration = 1;
