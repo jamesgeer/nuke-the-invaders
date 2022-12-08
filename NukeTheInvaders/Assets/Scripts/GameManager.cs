@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +14,13 @@ public class GameManager : MonoBehaviour
     private int lives;
     public int restartSceneNumber;
     private Vector3 startLocation = new Vector3(80,4,-18);
+    [SerializeField] private TextMeshProUGUI waveCount;
     // Start is called before the first frame update
     void Start()
     {
         lives = 1;
         currentWave = 1;
+        waveCount.text = currentWave.ToString();
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
         player = GameObject.FindGameObjectWithTag("Player");
@@ -55,7 +58,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("You won this wave!");
             waveStarter.GetComponent<WaveStarter>().Reset();
 
-            player.transform.position = startLocation;
+            // This would teleport the player to the start location (not used at the moment)
+            //player.transform.position = startLocation;
+            waveCount.text = currentWave.ToString();
         }
         else {
             Debug.Log("You lost!!");
