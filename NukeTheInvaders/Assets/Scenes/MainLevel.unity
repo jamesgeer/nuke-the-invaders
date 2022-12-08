@@ -13357,6 +13357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoutShip: {fileID: 7612942555517093323, guid: 4e1e8f8375c388c46b2e612203af0add, type: 3}
+  speederShip: {fileID: 6713029737783732701, guid: f8cc765eb869e8749ae93217c2299166, type: 3}
 --- !u!1001 &1010457100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16089,6 +16090,10 @@ PrefabInstance:
       propertyPath: inventoryHolder
       value: 
       objectReference: {fileID: 1607897491}
+    - target: {fileID: 6360622451715475529, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6360622451715475534, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -20745,7 +20750,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b05b3f7899c8c9f4390b47f96dbe3f3f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0

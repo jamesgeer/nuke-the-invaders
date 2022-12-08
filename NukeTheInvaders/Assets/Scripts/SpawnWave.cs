@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnWave : MonoBehaviour
 {
-    public GameObject scoutShip;
+    [SerializeField] private GameObject scoutShip;
+    [SerializeField] private GameObject speederShip;
     private float spawnTime;
     private int spawnAmount;
     private Vector3 shipDirection;
@@ -14,10 +15,12 @@ public class SpawnWave : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 	}
 	public void startSpawn(Vector3 shipDirection, int wave) {
-        // wait between 1 and 6 seconds for spawning initially
-        spawnTime = Random.Range(1.0f, 6.0f);
-        // spawn 1-3 ships initially
-        spawnAmount = Random.Range(1, 3);
+        // wait between 3 and 6 seconds for spawning initially
+        spawnTime = Random.Range(3.0f, 6.0f);
+        // spawn ships based on wave count
+
+        // a bit of RNG here
+        spawnAmount = Random.Range(wave, wave + 3);
         this.shipDirection = shipDirection;
 
         //Start to spawn enemies
@@ -27,8 +30,26 @@ public class SpawnWave : MonoBehaviour
     {
         //Wait spawnTime
         yield return new WaitForSeconds(spawnTime);
-        // TODO: decide what ship to spawn based on wave level etc
-        GameObject prefab = scoutShip;
+        // till wave 3 only spawn scout ships, every 6 waves a boss ship appears
+        GameObject prefab;
+        if (wave > 3)
+        {
+            float random = Random.Range(0.0f, 1.0f);
+            // 25% for a speeder
+            if (random > 0.25f)
+            {
+                prefab = scoutShip;
+            }
+            else {
+                prefab = speederShip;
+            }
+        }
+        else
+        {
+            prefab = scoutShip;
+        }
+
+
 
         // calculate min x, min y and min z compared to the spawner's position
 
@@ -43,8 +64,8 @@ public class SpawnWave : MonoBehaviour
         GameObject ship = Instantiate(prefab, new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ)), transform.rotation);
         ship.GetComponent<AlienShip>().StartMoving(this.shipDirection);
         spawnAmount--;
-        // wait between 1 and 6 seconds for spawning
-        spawnTime = Random.Range(1.0f, 6.0f);
+        // wait between 3 and 6 seconds for spawning
+        spawnTime = Random.Range(3.0f, 6.0f);
         //Start the spawn again
         if (spawnAmount > 0)
         {

@@ -15,7 +15,7 @@ public class EndZone : MonoBehaviour
 		if (other.gameObject.CompareTag("Enemy")) {
 			// Destroy the Ship
 			other.GetComponent<AlienShip>().kill();
-			// for now only reduce lives by 1
+			// for now only reduce lives by 1 for most ships
 			gameManager.GetComponent<GameManager>().reduceLives(1);
 		}
 	}

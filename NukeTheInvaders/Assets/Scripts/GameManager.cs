@@ -11,21 +11,18 @@ public class GameManager : MonoBehaviour
     private GameObject waveManager;
     private GameObject waveStarter;
     private GameObject musicManager;
-    private GameObject player;
-    private int lives;
+    private int lives { get; set; }
     public int restartSceneNumber;
-    private Vector3 startLocation = new Vector3(80,4,-18);
     [SerializeField] private TextMeshProUGUI waveCount;
     // Start is called before the first frame update
     void Start()
     {
-        lives = 1;
+        lives = 3;
         currentWave = 1;
         waveCount.text = currentWave.ToString();
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
         musicManager = GameObject.FindGameObjectWithTag("MusicManager");
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void startGame() {
@@ -58,12 +55,9 @@ public class GameManager : MonoBehaviour
         // cleanup here, teleport player to start and restart trigger
         if (win)
         {
-            Debug.Log("You won this wave!");
             waveStarter.GetComponent<WaveStarter>().Reset();
             musicManager.GetComponent<AudioSource>().Stop();
 
-            // This would teleport the player to the start location (not used at the moment)
-            //player.transform.position = startLocation;
             waveCount.text = currentWave.ToString();
         }
         else {
