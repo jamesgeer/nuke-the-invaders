@@ -14,6 +14,9 @@ public class ShopInventorySlotUI : MonoBehaviour
     // item price
     [SerializeField] private TextMeshProUGUI itemPrice;
     
+    // item currency sprite
+    [SerializeField] private Image itemCurrencySprite;
+    
     // inventory slot in which the item has been assigned to
     [SerializeField] private ShopInventorySlot assignedInventorySlot;
 
@@ -75,18 +78,19 @@ public class ShopInventorySlotUI : MonoBehaviour
     /**
      * initial state of our empty slot
      */
-    public void ClearSlot()
+    private void ClearSlot()
     {
         assignedInventorySlot?.ClearSlot();
         itemSprite.sprite = null;
         itemSprite.color = Color.clear;
         itemPrice.text = "";
+        itemCurrencySprite.color = Color.clear;
     }
 
     /**
      * click event for when a slot is clicked
      */
-    public void OnUISlotClick()
+    private void OnUISlotClick()
     {
         ShopInventoryUI?.SlotClicked(this);
     }

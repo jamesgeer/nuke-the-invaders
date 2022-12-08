@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 711125800806151039}
   - component: {fileID: 7585569898613084688}
   m_Layer: 5
-  m_Name: CurrencySymbol
+  m_Name: ItemCurrencySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3353990159135077767}
   - component: {fileID: 3353990159135077766}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ItemSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 589328719564617520}
   - component: {fileID: 815086489690486040}
   - component: {fileID: 1598198917823237533}
-  - component: {fileID: 8991743101906743734}
+  - component: {fileID: 9007167374427456403}
   m_Layer: 5
   m_Name: ShopInventorySlotUI
   m_TagString: Untagged
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8991743101906743734
+--- !u!114 &9007167374427456403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,13 +286,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3353990159996223045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8078e77c129fd43fe83db0de81c6725f, type: 3}
+  m_Script: {fileID: 11500000, guid: 01c6ff84f8894928a513abc3b18abb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 3353990159135077766}
-  itemCount: {fileID: 3962280885214979946}
+  itemPrice: {fileID: 3962280885214979946}
+  itemCurrencySprite: {fileID: 7585569898613084688}
   assignedInventorySlot:
-    item: {fileID: 0}
+    shopItem: {fileID: 0}
     quantity: -1
 --- !u!1 &6382623006505381779
 GameObject:
