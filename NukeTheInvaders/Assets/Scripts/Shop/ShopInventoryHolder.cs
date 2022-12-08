@@ -6,7 +6,7 @@ using UnityEngine.Events;
 // the holder of our inventory, for example the player, a vendor, a chest, etc.
 public class ShopInventoryHolder : MonoBehaviour
 {
-    [SerializeField] private int inventorySize;
+    private int inventorySize = 10;
     [SerializeField] protected ShopInventory shopInventory;
 
     // inventory getter
