@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int currentWave { get; set; }
     private GameObject waveManager;
     private GameObject waveStarter;
+    private GameObject musicManager;
     private GameObject player;
     private int lives;
     public int restartSceneNumber;
@@ -23,12 +24,14 @@ public class GameManager : MonoBehaviour
         waveCount.text = currentWave.ToString();
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
+        musicManager = GameObject.FindGameObjectWithTag("MusicManager");
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void startGame() {
         // start the wave, music etc here
         waveManager.GetComponent<WaveManager>().startWave(currentWave);
+        musicManager.GetComponent<AudioSource>().Play();
         currentWave++;
 
     }
@@ -57,13 +60,13 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You won this wave!");
             waveStarter.GetComponent<WaveStarter>().Reset();
+            musicManager.GetComponent<AudioSource>().Stop();
 
             // This would teleport the player to the start location (not used at the moment)
             //player.transform.position = startLocation;
             waveCount.text = currentWave.ToString();
         }
         else {
-            Debug.Log("You lost!!");
             SceneManager.LoadScene(restartSceneNumber);
         }
 

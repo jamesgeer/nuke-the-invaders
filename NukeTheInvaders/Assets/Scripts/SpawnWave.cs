@@ -17,9 +17,9 @@ public class SpawnWave : MonoBehaviour
         // wait between 1 and 6 seconds for spawning initially
         spawnTime = Random.Range(1.0f, 6.0f);
         // spawn 1-3 ships initially
-        spawnAmount = Random.Range(1, 4);
+        spawnAmount = Random.Range(1, 3);
         this.shipDirection = shipDirection;
-        Debug.Log(spawnAmount);
+
         //Start to spawn enemies
         StartCoroutine(SpawnShips(spawnTime, spawnAmount, wave));
     }
@@ -53,8 +53,6 @@ public class SpawnWave : MonoBehaviour
         else {
             // start checking for wave winning conditions
             gameManager.GetComponent<GameManager>().checkGameStatus();
-            // deactivate the spawner once it is finished
-            gameObject.SetActive(false);
         }
 
     }

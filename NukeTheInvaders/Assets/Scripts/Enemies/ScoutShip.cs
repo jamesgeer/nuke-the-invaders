@@ -28,7 +28,6 @@ public class ScoutShip : AlienShip
 	public override void StartMoving(Vector3 shipDirection)
 	{
         rb = GetComponent<Rigidbody>();
-        Debug.Log(shipDirection);
         rb.velocity = shipDirection * speed;
     }
 
