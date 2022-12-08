@@ -431,8 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc55206632d914818b14a8f69f6d6be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regularAmmoObject: {fileID: 0}
-  infiniteAmmoObject: {fileID: 0}
+  regularAmmoObject: {fileID: 4128777173457071272, guid: 0f3693f096244bb4a965272f9cd25c84, type: 3}
+  infiniteAmmoObject: {fileID: 4304702590645054988, guid: 8539249e095f34871875311950c50350, type: 3}
   ammoType: {fileID: 11400000, guid: 9332a7a1bbbf048edb7410ff452cce52, type: 2}
   shootSound: {fileID: 8300000, guid: 9877109791b0d124680f37509778b797, type: 3}
 --- !u!1 &250692802
@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 250692804}
   - component: {fileID: 250692809}
   - component: {fileID: 250692810}
+  - component: {fileID: 250692811}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -579,6 +580,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tokensHeldUI: {fileID: 1273117103}
+--- !u!114 &250692811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250692802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e36303a91c548929654dcb27af5876d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 10
+  inventory:
+    slots: []
 --- !u!4 &529260335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4353886454629664219, guid: 7c9a8af92672d437eae330604fcc9546, type: 3}
@@ -1489,7 +1505,7 @@ PrefabInstance:
     - target: {fileID: 6360622451715475520, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: inventoryHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 250692811}
     - target: {fileID: 6360622451715475534, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
