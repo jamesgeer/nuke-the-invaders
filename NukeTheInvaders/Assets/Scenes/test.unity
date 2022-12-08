@@ -448,7 +448,6 @@ GameObject:
   - component: {fileID: 250692806}
   - component: {fileID: 250692805}
   - component: {fileID: 250692804}
-  - component: {fileID: 250692803}
   - component: {fileID: 250692809}
   - component: {fileID: 250692810}
   m_Layer: 0
@@ -458,21 +457,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &250692803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250692802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e36303a91c548929654dcb27af5876d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySize: 5
-  inventory:
-    slots: []
 --- !u!54 &250692804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1505,7 +1489,7 @@ PrefabInstance:
     - target: {fileID: 6360622451715475520, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: inventoryHolder
       value: 
-      objectReference: {fileID: 250692803}
+      objectReference: {fileID: 0}
     - target: {fileID: 6360622451715475534, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2250,6 +2234,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f7e9a6ea8506243baae602c20f9c2b, type: 3}
+--- !u!1 &1658667683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8505077812267851790, guid: 61f7e9a6ea8506243baae602c20f9c2b, type: 3}
+  m_PrefabInstance: {fileID: 1658667682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1658667684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658667683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fe35a80c6445edbdc599fd6d155870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 0
+  shopInventory:
+    slots: []
 --- !u!1 &1663740358
 GameObject:
   m_ObjectHideFlags: 0

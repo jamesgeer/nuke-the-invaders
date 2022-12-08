@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 /**
  * our inventory ui/window/hotbar for the frontend
@@ -20,9 +18,6 @@ public class ShopInventoryUI : MonoBehaviour
     
     // player
     private Player player;
-    
-    // player inventory
-    private Inventory playerInventory;
 
     // dictionary with the ui slots as the key and backend slots as the value
     private Dictionary<ShopInventorySlotUI, ShopInventorySlot> slotsDictionary;
@@ -37,8 +32,7 @@ public class ShopInventoryUI : MonoBehaviour
         
         // assign the player inventory variable
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        playerInventory = player.GetComponent<Player>().Inventory;
-        
+
         // append UpdateSlot to onSlotChange event (trigger on inventory change)
         shopInventory.onSlotChange += UpdateSlot;
         
