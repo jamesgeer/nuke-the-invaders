@@ -34,44 +34,19 @@ public class ShopInventory
         }
     }
 
-    public bool SellItem(ShopInventoryItem shopItem, int amount)
+    public bool SellItem(Player player, ShopInventoryItem shopItem)
     {
-        // // check inventory contains this item and if so grab slots with it
-        // if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
-        // {
-        //     // copy amount in the case that we need to pull from different stacks
-        //     int amountToTake = amount;
-        //     
-        //     // loop over slots that contain the item
-        //     foreach (var slot in slotsWithItem)
-        //     {
-        //         // if amount to take is greater than the stack size then see if there is enough
-        //         // to take from another stack
-        //         if (amountToTake > slot.StackSize)
-        //         {
-        //             // reduce amount to take by the items taken from this slot
-        //             amountToTake -= slot.StackSize;
-        //             
-        //             // all items taken from slot so set to empty state
-        //             slot.ClearSlot();
-        //             onSlotChange?.Invoke(slot);
-        //         } 
-        //         else if (amountToTake == slot.StackSize)
-        //         {
-        //             slot.ClearSlot();
-        //             onSlotChange?.Invoke(slot);
-        //             return true;
-        //         }
-        //         else
-        //         {
-        //             slot.DecreaseQuantity(amountToTake);
-        //             onSlotChange?.Invoke(slot);
-        //             return true;
-        //         }
-        //     }
-        // }
+        // check if the player can afford this item
+        if (!player.PlayerToken.CanAfford(shopItem.price)) return false;
+        
+        // check if the player has space for this item
+        if (!player.Inventory.HasSpaceForItem(shopItem.item, shopItem.price)) return false;
+        
+        // player has enough tokens, and has space for item so complete transaction
+        player.PlayerToken.DecreaseTokens(shopItem.price);
+        player.Inventory.AddToInventory(shopItem.item, shopItem.price);
 
-        // this item is not in the inventory
-        return false;
+        // item successfully sold
+        return true;
     }
 }

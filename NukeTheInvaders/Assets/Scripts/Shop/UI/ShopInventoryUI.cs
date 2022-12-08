@@ -18,6 +18,9 @@ public class ShopInventoryUI : MonoBehaviour
     // shop inventory
     private ShopInventory shopInventory;
     
+    // player
+    private Player player;
+    
     // player inventory
     private Inventory playerInventory;
 
@@ -27,13 +30,13 @@ public class ShopInventoryUI : MonoBehaviour
     public void Start()
     {
         // check to make sure the inventory holder has been assigned
-        if (shopInventoryHolder != null) return;
+        if (shopInventoryHolder == null) return;
 
         // assign the inventory variable to the inventory holder's inventory
         shopInventory = shopInventoryHolder.ShopInventory;
         
         // assign the player inventory variable
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         playerInventory = player.GetComponent<Player>().Inventory;
         
         // append UpdateSlot to onSlotChange event (trigger on inventory change)
@@ -81,20 +84,16 @@ public class ShopInventoryUI : MonoBehaviour
 
     /**
      * action performed when an inventory slot is clicked
-     * TODO: if slot clicked with item, make that the active item
      */
     public void SlotClicked(ShopInventorySlotUI clickedUISlot)
     {
         // no action if slot is empty
         if (clickedUISlot.AssignedInventorySlot.ShopItem.item == null) return;
-        
-        if (clickedUISlot.AssignedInventorySlot.ShopItem.item != null)
-        {
-            Debug.Log(clickedUISlot.AssignedInventorySlot.ShopItem.item.itemName);
-        }
-        else
-        {
-            Debug.Log("No item");
-        }
+
+        // shop item clicked
+        var shopItem = clickedUISlot.AssignedInventorySlot.ShopItem;
+
+        // player wants to purchase clicked shop item
+        shopInventory.SellItem(player, shopItem);
     }
 }

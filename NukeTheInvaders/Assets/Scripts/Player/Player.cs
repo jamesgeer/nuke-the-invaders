@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
 	// player inventory getter
 	public Inventory Inventory => inventory;
 
+	// infinite ammo getter
 	public InventoryItem InfiniteAmmo => infiniteAmmo;
+	
+	// player token getter
+	public PlayerToken PlayerToken => playerToken;
 	
 	/**
 	 * must be awake as otherwise when classes like the gun

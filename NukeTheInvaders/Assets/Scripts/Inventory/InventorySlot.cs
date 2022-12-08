@@ -71,4 +71,12 @@ public class InventorySlot
     {
         return quantity - amountToDecrease < 1;
     }
+
+    /**
+     * return number of spaces available in stack
+     */
+    public int RemainingStackSpace()
+    {
+        return item.maxStackSize - quantity;
+    }
 }
