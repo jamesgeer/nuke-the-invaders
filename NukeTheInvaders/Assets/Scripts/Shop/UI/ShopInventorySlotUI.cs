@@ -7,10 +7,7 @@ public class ShopInventorySlotUI : MonoBehaviour
 {
     // item image/sprite
     [SerializeField] private Image itemSprite;
-    
-    // number of items in stack
-    //[SerializeField] private TextMeshProUGUI itemCount;
-    
+
     // item price
     [SerializeField] private TextMeshProUGUI itemPrice;
     
@@ -68,6 +65,7 @@ public class ShopInventorySlotUI : MonoBehaviour
             
             // display item price in ui
             itemPrice.text = slot.ShopItem.price.ToString();
+            itemCurrencySprite.color = Color.white;
         }
         else
         {

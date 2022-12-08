@@ -15,25 +15,31 @@ public class ShopInventoryUI : MonoBehaviour
     // array containing assigned inventory ui slots (from the editor)
     [SerializeField] private ShopInventorySlotUI[] slotsUI;
     
-    // our inventory
-    private ShopInventory _shopInventory;
+    // shop inventory
+    private ShopInventory shopInventory;
     
+    // player inventory
+    private Inventory playerInventory;
+
     // dictionary with the ui slots as the key and backend slots as the value
-    private Dictionary<ShopInventorySlotUI, ShopInventorySlot> _slotsDictionary;
+    private Dictionary<ShopInventorySlotUI, ShopInventorySlot> slotsDictionary;
 
     public void Start()
     {
         // check to make sure the inventory holder has been assigned
-        if (shopInventoryHolder != null)
-        {
-            // assign the inventory variable to the inventory holder's inventory
-            _shopInventory = shopInventoryHolder.ShopInventory;
-            
-            // append UpdateSlot to onSlotChange event (trigger on inventory change)
-            _shopInventory.onSlotChange += UpdateSlot;
-            
-            AssignSlot(_shopInventory);
-        }
+        if (shopInventoryHolder != null) return;
+
+        // assign the inventory variable to the inventory holder's inventory
+        shopInventory = shopInventoryHolder.ShopInventory;
+        
+        // assign the player inventory variable
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerInventory = player.GetComponent<Player>().Inventory;
+        
+        // append UpdateSlot to onSlotChange event (trigger on inventory change)
+        shopInventory.onSlotChange += UpdateSlot;
+        
+        AssignSlot(shopInventory);
     }
 
     /**
@@ -43,13 +49,13 @@ public class ShopInventoryUI : MonoBehaviour
     private void AssignSlot(ShopInventory inventory)
     {
         // create a new dictionary to contain our backend and frontend slots
-        _slotsDictionary = new Dictionary<ShopInventorySlotUI, ShopInventorySlot>();
+        slotsDictionary = new Dictionary<ShopInventorySlotUI, ShopInventorySlot>();
 
         // loop over the slots in the inventory
         for (int i = 0; i < inventory.InventorySize; i++)
         {
             // add empty slots to the dictionary
-            _slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
+            slotsDictionary.Add(slotsUI[i], inventory.Slots[i]);
             
             // initialise slots to their default empty values
             slotsUI[i].InitialiseSlot(inventory.Slots[i]);
@@ -62,7 +68,7 @@ public class ShopInventoryUI : MonoBehaviour
     private void UpdateSlot(ShopInventorySlot slotToUpdate)
     {
         // loop over slots in dictionary
-        foreach (var slot in _slotsDictionary)
+        foreach (var slot in slotsDictionary)
         {
             // find backend slot that matches the frontend value
             if (slot.Value == slotToUpdate)
@@ -79,6 +85,9 @@ public class ShopInventoryUI : MonoBehaviour
      */
     public void SlotClicked(ShopInventorySlotUI clickedUISlot)
     {
+        // no action if slot is empty
+        if (clickedUISlot.AssignedInventorySlot.ShopItem.item == null) return;
+        
         if (clickedUISlot.AssignedInventorySlot.ShopItem.item != null)
         {
             Debug.Log(clickedUISlot.AssignedInventorySlot.ShopItem.item.itemName);

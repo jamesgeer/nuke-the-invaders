@@ -17,7 +17,7 @@ public class ShopInventory
 
     // event fires when an item is added to the inventory
     public UnityAction<ShopInventorySlot> onSlotChange;
-
+    
     /**
      * inventory constructor, generates the slots for the inventory
      */
