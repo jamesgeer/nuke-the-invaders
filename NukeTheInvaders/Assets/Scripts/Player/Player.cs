@@ -1,20 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Player : MonoBehaviour
 {
-	private InventoryHolder _inventoryHolder;
-	private Inventory _inventory;
+	private InventoryHolder inventoryHolder;
+	private Inventory inventory;
+	private PlayerToken playerToken;
 	
 	[SerializeField] private InventoryItem infiniteAmmo;
 	[SerializeField] private InventoryItem startItem;
 	[SerializeField] private int startItemAmount;
 
 	// player inventory getter
-	public Inventory Inventory => _inventory;
+	public Inventory Inventory => inventory;
 
 	public InventoryItem InfiniteAmmo => infiniteAmmo;
 	
@@ -24,18 +21,20 @@ public class Player : MonoBehaviour
 	 */
 	private void Awake()
 	{
-		_inventoryHolder = GetComponent<InventoryHolder>();
-        _inventory = _inventoryHolder.Inventory;
+		// get the inventory assigned to the player
+		inventoryHolder = GetComponent<InventoryHolder>();
+		inventory = inventoryHolder.Inventory;
+		playerToken = GetComponent<PlayerToken>();
 
         if (infiniteAmmo)
         {
-	        _inventory.AddToInventory(infiniteAmmo, 10);
+	        inventory.AddToInventory(infiniteAmmo, 10);
         }
 
         // see if a starting item has been assigned to the player
         if (startItem != null && startItemAmount > 0)
         {
-	        _inventory.AddToInventory(startItem, startItemAmount);
+	        inventory.AddToInventory(startItem, startItemAmount);
         }
 	}
 
@@ -50,6 +49,6 @@ public class Player : MonoBehaviour
 	 */
 	private void RefillInfiniteAmmo()
 	{
-		_inventory.AddToInventory(infiniteAmmo, 1);
+		inventory.AddToInventory(infiniteAmmo, 1);
 	}
 }
