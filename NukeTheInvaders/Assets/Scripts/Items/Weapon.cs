@@ -72,9 +72,9 @@ public class Weapon : MonoBehaviour
                 
         // instantiate the projectile as game object (also make it point forward)
         // GameObject projectile = Instantiate(ammoObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
-        Instantiate(ammoGameObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
+        GameObject created = Instantiate(ammoGameObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
                 
         // ask physics engine to ignore collison between power cell and our FPSController
-        //Physics.IgnoreCollision(transform.root.GetComponent<Collider>(), projectile.GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(transform.root.GetComponent<Collider>(), created.GetComponent<Collider>(), true);
     }
 }
