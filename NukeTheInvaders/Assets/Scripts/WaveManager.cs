@@ -25,9 +25,11 @@ public class WaveManager : MonoBehaviour
         waveSpawner.transform.position = spawnLocations[locationIndex];
         endZone.transform.position = new Vector3(-100, 40, -15);
         endZone.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-        // also rotate the spawner so that the ships face the correct direction
-        // and place endzone at the opposite side
-        switch (locationIndex) {
+
+		#region Rotate spawner, endzone and ships
+		// also rotate the spawner so that the ships face the correct direction
+		// and place endzone at the opposite side
+		switch (locationIndex) {
             case 0:
                 endZone.transform.position = spawnLocations[1];
                 endZone.transform.Rotate(0, 90, 0);
@@ -51,6 +53,7 @@ public class WaveManager : MonoBehaviour
                 shipDirection = new Vector3(-1,0,0);
                 break;
         }
+        #endregion
 
         waveSpawner.GetComponent<SpawnWave>().startSpawn(shipDirection, wave);
         endZone.SetActive(true);

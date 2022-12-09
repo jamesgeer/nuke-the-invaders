@@ -11,18 +11,20 @@ public class GameManager : MonoBehaviour
     private GameObject waveManager;
     private GameObject waveStarter;
     private GameObject musicManager;
-    private int lives { get; set; }
+    private GameObject powerupManager;
+    private int lives;
     public int restartSceneNumber;
     [SerializeField] private TextMeshProUGUI waveCount;
     [SerializeField] private TextMeshProUGUI livesCount;
     // Start is called before the first frame update
     void Start()
     {
-        lives = 3;
+        lives = 10;
         currentWave = 1;
         waveCount.text = currentWave.ToString();
         livesCount.text = lives.ToString();
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
+        powerupManager = GameObject.FindGameObjectWithTag("PowerUpManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
         musicManager = GameObject.FindGameObjectWithTag("MusicManager");
     }
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     public void startGame() {
         // start the wave, music etc here
         waveManager.GetComponent<WaveManager>().startWave(currentWave);
+        powerupManager.GetComponent<PowerupManager>().startPowerup();
         musicManager.GetComponent<AudioSource>().Play();
         currentWave++;
 
@@ -75,6 +78,12 @@ public class GameManager : MonoBehaviour
         {
             endGame(false);
         }
+    }
+
+    public void increaseLives(int amount)
+    {
+        lives += amount;
+        livesCount.text = lives.ToString();
     }
 
     void Update()
