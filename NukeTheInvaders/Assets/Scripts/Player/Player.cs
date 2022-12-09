@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 	}
 
 	/**
-	 * slowly refill infinite ammo
+	 *  refill infinite ammo
 	 */
 	public void refillInfiniteAmmo(int amount)
 	{
