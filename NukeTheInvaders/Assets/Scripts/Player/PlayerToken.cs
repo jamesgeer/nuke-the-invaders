@@ -16,6 +16,7 @@ public class PlayerToken : MonoBehaviour
     private void Start()
     {
         tokensHeldUI.text = "0";
+        IncreaseTokens(10);
     }
     
     /**
@@ -46,6 +47,6 @@ public class PlayerToken : MonoBehaviour
      */
     public bool CanAfford(int itemCost)
     {
-        return tokensHeld - itemCost > 0;
+        return tokensHeld - itemCost >= 0;
     }
 }

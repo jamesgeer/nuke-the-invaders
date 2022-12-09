@@ -43,9 +43,9 @@ public class Player : MonoBehaviour
 	/**
 	 *  refill infinite ammo (by default 1)
 	 */
-	public void refillInfiniteAmmo(int amount)
+	public void refillRedAmmo(int amount)
 	{
-		inventory.AddToInventory(infiniteAmmo, amount);
+		inventory.AddToInventory(startItem, amount);
     }
     
 	private void incrementInfiniteAmmo()

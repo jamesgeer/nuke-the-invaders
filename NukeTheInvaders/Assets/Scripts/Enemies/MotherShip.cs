@@ -7,7 +7,7 @@ public class MotherShip : AlienShip
     private Rigidbody rb;
     private float speed = 5f;
 
-	void Start()
+	void Awake()
     {
         this._health = 3;
     }
@@ -18,6 +18,7 @@ public class MotherShip : AlienShip
         _health -= 1;
         if (_health <= 0)
         {
+            _player.IncreaseTokens(3);
             Destroy(gameObject);
         } 
     }

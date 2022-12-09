@@ -7,7 +7,7 @@ public class SpeederShip : AlienShip
     private Rigidbody rb;
     private float speed = 15f;
 
-	void Start()
+	void Awake()
     {
         this._health = 1;
     }
@@ -18,6 +18,7 @@ public class SpeederShip : AlienShip
         _health -= 1;
         if (_health <= 0)
         {
+            _player.IncreaseTokens(2);
             Destroy(gameObject);
         } 
     }
@@ -36,5 +37,6 @@ public class SpeederShip : AlienShip
 	{
         return "Speeder";
 	}
+
 }
 

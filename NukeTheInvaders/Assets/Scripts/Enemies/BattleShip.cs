@@ -7,7 +7,7 @@ public class BattleShip : AlienShip
     private Rigidbody rb;
     private float speed = 5f;
 
-	void Start()
+	void Awake()
     {
         this._health = 5;
     }
@@ -18,6 +18,7 @@ public class BattleShip : AlienShip
         _health -= 1;
         if (_health <= 0)
         {
+            _player.IncreaseTokens(5);
             Destroy(gameObject);
         } 
     }
@@ -37,5 +38,6 @@ public class BattleShip : AlienShip
         return "Battle";
 
     }
+
 }
 

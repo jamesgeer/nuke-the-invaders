@@ -28,8 +28,8 @@ public class PowerupManager : MonoBehaviour
         //Wait 4 seconds before deciding if a powerup spawns
         yield return new WaitForSeconds(4);
         var random = Random.Range(0.0f, 1.0f);
-        // 25% chance to spawn a powerup
-        if (random <= 0.25f) {
+        // 65% chance to spawn a powerup
+        if (random <= 0.65f) {
             // same chance for all powerup types to spawn
             random = Random.Range(0.0f, 1.0f);
             int j = Random.Range(0, 3);
@@ -49,6 +49,6 @@ public class PowerupManager : MonoBehaviour
 
     public void giveAmmo()
     {
-        player.GetComponent<Player>().refillInfiniteAmmo(10);
+        player.GetComponent<Player>().refillRedAmmo(5);
     }
 }
