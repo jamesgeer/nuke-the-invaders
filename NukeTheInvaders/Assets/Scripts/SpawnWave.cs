@@ -20,7 +20,6 @@ public class SpawnWave : MonoBehaviour
         // wait between 3 and 6 seconds for spawning initially
         spawnTime = Random.Range(3.0f, 6.0f);
         // spawn ships based on wave count
-
         // a bit of RNG here
         spawnAmount = Random.Range(wave, wave + 3);
         this.shipDirection = shipDirection;

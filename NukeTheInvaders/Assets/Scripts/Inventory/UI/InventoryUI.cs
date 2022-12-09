@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 /**
  * our inventory ui/window/hotbar for the frontend
@@ -73,19 +72,4 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    /**
-     * action performed when an inventory slot is clicked
-     * TODO: if slot clicked with item, make that the active item
-     */
-    public void SlotClicked(InventorySlotUI clickedUISlot)
-    {
-        if (clickedUISlot.AssignedInventorySlot.Item != null)
-        {
-            Debug.Log(clickedUISlot.AssignedInventorySlot.Item.itemName);
-        }
-        else
-        {
-            Debug.Log("No item");
-        }
-    }
 }

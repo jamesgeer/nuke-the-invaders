@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator checkGameEnd()
 	{
-        // check every 5 seconds if game has ended (player has won)
+        // check every 3 seconds if game has ended (player has won)
         yield return new WaitForSeconds(3);
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && lives > 0)
         {
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
 	private void endGame(bool win)
     {
-        // cleanup here, teleport player to start and restart trigger
+        // cleanup here and restart trigger
         if (win)
         {
             waveStarter.GetComponent<WaveStarter>().Reset();

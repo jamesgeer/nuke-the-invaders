@@ -10,6 +10,7 @@ public class LifePowerup : MonoBehaviour
     void Start()
     {
         powerupManager = GameObject.FindGameObjectWithTag("PowerUpManager");
+        // gets deleted after 15 seconds
         Destroy(transform.root.gameObject, 15);
     }
 

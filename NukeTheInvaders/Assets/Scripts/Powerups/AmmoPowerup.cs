@@ -6,11 +6,11 @@ public class AmmoPowerup : MonoBehaviour
 {
     private GameObject powerupManager;
     [SerializeField] private AudioClip collectSound;
-    // Start is called before the first frame update
     void Start()
     {
         powerupManager = GameObject.FindGameObjectWithTag("PowerUpManager");
-        Destroy(transform.root.gameObject, 15);
+        // gets deleted after 15 seconds
+        Destroy(transform.root.gameObject, 15f);
     }
 
 	private void OnTriggerEnter(Collider other)

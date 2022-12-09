@@ -8,6 +8,7 @@ public class PowerupManager : MonoBehaviour
     private GameObject player;
     [SerializeField] GameObject lifePowerup;
     [SerializeField] GameObject ammoPowerup;
+    // possible spawn locations of powerups
     private Vector3[] spawnLocations = { new Vector3(57, 2.16f, -19.26f),
                                          new Vector3(2.62f, 0.09f, -22.25f),
                                          new Vector3(2.62f, 0.09f, -49.75f),
@@ -20,7 +21,7 @@ public class PowerupManager : MonoBehaviour
     }
 
     public void startPowerup() {
-        //after 7 seconds there is a chance that a powerup will spawn
+        //after 4 seconds there is a chance that a powerup will spawn
         StartCoroutine(startPowerupSpawn());
     }
 
@@ -32,7 +33,7 @@ public class PowerupManager : MonoBehaviour
         if (random <= 0.65f) {
             // same chance for all powerup types to spawn
             random = Random.Range(0.0f, 1.0f);
-            int j = Random.Range(0, 3);
+            int j = Random.Range(0, 4); // randomly choose a location
             if (random < 0.5f)
             {
                 Instantiate(lifePowerup, spawnLocations[j], lifePowerup.transform.rotation);

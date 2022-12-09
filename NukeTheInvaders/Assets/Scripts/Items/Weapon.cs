@@ -73,7 +73,6 @@ public class Weapon : MonoBehaviour
         AudioSource.PlayClipAtPoint(shootSound, transform.position, 0.2f);
                 
         // instantiate the projectile as game object (also make it point forward)
-        // GameObject projectile = Instantiate(ammoObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
         GameObject created = Instantiate(ammoGameObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
                 
         // ask physics engine to ignore collison between power cell and our FPSController

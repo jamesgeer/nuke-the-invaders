@@ -6,6 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     private GameObject waveSpawner;
     private Vector3 shipDirection;
+    // possible ship spawning locations
     private Vector3[] spawnLocations = { new Vector3(15, 40, -135),
                                          new Vector3(15, 40, 105),
                                          new Vector3(-100, 40, -15),
@@ -23,6 +24,7 @@ public class WaveManager : MonoBehaviour
         // randomly select a position for the wave to come from
         int locationIndex = Random.Range(0, 4);
         waveSpawner.transform.position = spawnLocations[locationIndex];
+        // prepare the endzone for future transformations
         endZone.transform.position = new Vector3(-100, 40, -15);
         endZone.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
 

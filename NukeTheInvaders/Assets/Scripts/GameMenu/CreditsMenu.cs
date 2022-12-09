@@ -13,7 +13,6 @@ public class CreditsMenu : MonoBehaviour
 	}
 	public void CreditsClose()
 	{
-		Debug.Log("test");
 		credits.SetActive(false);
 	}
 }

@@ -48,6 +48,7 @@ public class Shop : MonoBehaviour
             // prevent weapon from firing while using the shop inventory
             weapon.enabled = false;
 
+            // allows player to interact with shop
             other.gameObject.GetComponent<FirstPersonAIO>().enableCameraMovement = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -67,6 +68,7 @@ public class Shop : MonoBehaviour
             // enable weapon once player has left the shop
             weapon.enabled = true;
 
+            // resets player cursor and camera when leaving the shop area
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             other.gameObject.GetComponent<FirstPersonAIO>().enableCameraMovement = true;

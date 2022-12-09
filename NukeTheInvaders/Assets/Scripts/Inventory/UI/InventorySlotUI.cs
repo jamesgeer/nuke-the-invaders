@@ -13,9 +13,6 @@ public class InventorySlotUI : MonoBehaviour
     
     // inventory slot in which the item has been assigned to
     [SerializeField] private InventorySlot assignedInventorySlot;
-
-    // ui slot button
-    private Button button;
     
     // parent class, the wrapper containing the slot(s)
     private InventoryUI InventoryUI { get; set; }
@@ -30,10 +27,6 @@ public class InventorySlotUI : MonoBehaviour
     {
         // slot is initially empty
         ClearSlot();
-
-        // get slot button and assign the click event listener
-        button = GetComponent<Button>();
-        button?.onClick.AddListener(OnUISlotClick);
 
         // assign reference to ui wrapper component (e.g. player hotbar)
         InventoryUI = transform.parent.GetComponent<InventoryUI>();
@@ -80,11 +73,4 @@ public class InventorySlotUI : MonoBehaviour
         itemCount.text = "";
     }
 
-    /**
-     * click event for when a slot is clicked
-     */
-    public void OnUISlotClick()
-    {
-        InventoryUI?.SlotClicked(this);
-    }
 }
