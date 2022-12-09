@@ -40,15 +40,20 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-		//InvokeRepeating(nameof(RefillInfiniteAmmo), 10f, 10f);
+		InvokeRepeating(nameof(incrementInfiniteAmmo), 10f, 10f);
 	}
 
 	/**
-	 *  refill infinite ammo
+	 *  refill infinite ammo (by default 1)
 	 */
 	public void refillInfiniteAmmo(int amount)
 	{
 		_inventory.AddToInventory(infiniteAmmo,amount);
+	}
+
+	private void incrementInfiniteAmmo()
+	{
+		_inventory.AddToInventory(infiniteAmmo, 1);
 	}
 
 }
