@@ -35,5 +35,10 @@ public class ScoutShip : AlienShip
 	{
         Destroy(gameObject);
     }
+    public override string getShipType()
+    {
+        return "Scout";
+
+    }
 }
 

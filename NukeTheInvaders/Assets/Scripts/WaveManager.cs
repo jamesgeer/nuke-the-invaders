@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour
         // randomly select a position for the wave to come from
         int locationIndex = Random.Range(0, 4);
         waveSpawner.transform.position = spawnLocations[locationIndex];
+        endZone.transform.position = new Vector3(-100, 40, -15);
+        endZone.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
         // also rotate the spawner so that the ships face the correct direction
         // and place endzone at the opposite side
         switch (locationIndex) {

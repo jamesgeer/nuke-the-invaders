@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeederShip : AlienShip
+public class BattleShip : AlienShip
 {
     private Rigidbody rb;
-    private float speed = 15f;
+    private float speed = 5f;
 
 	void Start()
     {
-        this._health = 1;
+        this._health = 5;
     }
 
     
@@ -36,9 +36,10 @@ public class SpeederShip : AlienShip
         Destroy(gameObject);
     }
 
-	public override string getShipType()
-	{
-        return "Speeder";
-	}
+    public override string getShipType()
+    {
+        return "Battle";
+
+    }
 }
 

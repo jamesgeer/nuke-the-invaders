@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
         if (infiniteAmmo)
         {
-	        _inventory.AddToInventory(infiniteAmmo, 10);
+	        _inventory.AddToInventory(infiniteAmmo, 30);
         }
 
         // see if a starting item has been assigned to the player

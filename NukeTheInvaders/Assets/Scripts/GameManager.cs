@@ -14,12 +14,14 @@ public class GameManager : MonoBehaviour
     private int lives { get; set; }
     public int restartSceneNumber;
     [SerializeField] private TextMeshProUGUI waveCount;
+    [SerializeField] private TextMeshProUGUI livesCount;
     // Start is called before the first frame update
     void Start()
     {
         lives = 3;
         currentWave = 1;
         waveCount.text = currentWave.ToString();
+        livesCount.text = lives.ToString();
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
         musicManager = GameObject.FindGameObjectWithTag("MusicManager");
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void reduceLives(int amount) {
         lives -= amount;
+        livesCount.text = lives.ToString();
         if (lives <= 0)
         {
             endGame(false);

@@ -6,6 +6,8 @@ public class SpawnWave : MonoBehaviour
 {
     [SerializeField] private GameObject scoutShip;
     [SerializeField] private GameObject speederShip;
+    [SerializeField] private GameObject motherShip;
+    [SerializeField] private GameObject battleShip;
     private float spawnTime;
     private int spawnAmount;
     private Vector3 shipDirection;
@@ -35,13 +37,24 @@ public class SpawnWave : MonoBehaviour
         if (wave > 3)
         {
             float random = Random.Range(0.0f, 1.0f);
-            // 25% for a speeder
-            if (random > 0.25f)
-            {
-                prefab = scoutShip;
+            if (wave % 5 == 0 && spawnAmount == 1)
+            { // boss wave (spawn last)
+                prefab = battleShip;
             }
             else {
-                prefab = speederShip;
+                // 25% for a speeder
+                if (random < 0.25f)
+                {
+                    prefab = speederShip;
+                }
+                else if (random < 0.35f)
+                {
+                    prefab = motherShip;
+                }
+                else
+                {
+                    prefab = scoutShip;
+                }
             }
         }
         else
