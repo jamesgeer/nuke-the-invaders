@@ -6,9 +6,12 @@ public abstract class AlienShip : MonoBehaviour
 {
     protected float _health { get; set; }
 
+    // reduces health by 1
     public abstract void ReduceHealth();
+    // kills the ship
     public abstract void kill();
-    public abstract void OnDestroy();
+    // returns the ship type
     public abstract string getShipType();
+    // starts moving the ship
     public abstract void StartMoving(Vector3 shipDirection);
 }

@@ -23,6 +23,7 @@ public class Ammo : MonoBehaviour
 	
 	private void Update()
 	{
+		// rocket will slowly accelerate to max speed
 		transform.Translate(0, rocketAcceleration * Time.deltaTime, 0);
 		if (rocketAcceleration < maxSpeed)
 		{
@@ -37,7 +38,7 @@ public class Ammo : MonoBehaviour
 			//reduce the ship's health
 			other.gameObject.GetComponent<AlienShip>().ReduceHealth();
 		}
-		Destroy(gameObject);//destroy self
+		Destroy(gameObject);//destroy self (if it hits the environment)
 	}
 	
 	void OnDestroy()

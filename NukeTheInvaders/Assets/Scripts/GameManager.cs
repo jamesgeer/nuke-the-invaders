@@ -19,10 +19,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // starts with 10 lives
         lives = 10;
+        livesCount.text = lives.ToString();
+        // initiate wave counter
         currentWave = 1;
         waveCount.text = currentWave.ToString();
-        livesCount.text = lives.ToString();
+        
         waveManager = GameObject.FindGameObjectWithTag("WaveManager");
         powerupManager = GameObject.FindGameObjectWithTag("PowerUpManager");
         waveStarter = GameObject.FindGameObjectWithTag("WaveStarter");
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     }
     public void checkGameStatus() {
+        // start checking if the wave has ended
         StartCoroutine(checkGameEnd());
     }
 
@@ -65,7 +69,7 @@ public class GameManager : MonoBehaviour
 
             waveCount.text = currentWave.ToString();
         }
-        else {
+        else { // load restart scene if the player has lost
             SceneManager.LoadScene(restartSceneNumber);
         }
 
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
 
     private void TriggerEvent()
     {
+        // when player presses "P" he quits to main menu
         if (Input.GetButtonDown("Quit"))
         {
             SceneManager.LoadScene(0);

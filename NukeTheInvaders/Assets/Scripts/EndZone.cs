@@ -15,7 +15,7 @@ public class EndZone : MonoBehaviour
 		if (other.gameObject.CompareTag("Enemy")) {
 			// Destroy the Ship
 			other.GetComponent<AlienShip>().kill();
-			// for now only reduce lives by 1 for most ships
+			// reduce game lives based on ship type
 			if (other.GetComponent<AlienShip>().getShipType() == "Battle")
 			{
 				gameManager.GetComponent<GameManager>().reduceLives(999);
@@ -24,7 +24,7 @@ public class EndZone : MonoBehaviour
 			{
 				gameManager.GetComponent<GameManager>().reduceLives(2);
 			}
-			else {
+			else { // any other ship, in our case Speeder and Scout
 				gameManager.GetComponent<GameManager>().reduceLives(1);
 			}
 			

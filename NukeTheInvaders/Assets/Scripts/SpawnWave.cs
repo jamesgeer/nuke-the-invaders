@@ -32,7 +32,7 @@ public class SpawnWave : MonoBehaviour
     {
         //Wait spawnTime
         yield return new WaitForSeconds(spawnTime);
-        // till wave 3 only spawn scout ships, every 6 waves a boss ship appears
+        // till wave 3 only spawn scout ships, every 5 waves a boss ship appears
         GameObject prefab;
         if (wave > 3)
         {
@@ -46,13 +46,13 @@ public class SpawnWave : MonoBehaviour
                 if (random < 0.25f)
                 {
                     prefab = speederShip;
-                }
+                } // 10% for mothership
                 else if (random < 0.35f)
                 {
                     prefab = motherShip;
                 }
                 else
-                {
+                { // 65% for scout ship
                     prefab = scoutShip;
                 }
             }
@@ -75,11 +75,12 @@ public class SpawnWave : MonoBehaviour
 
         //Spawn ship at random position near this spawner
         GameObject ship = Instantiate(prefab, new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), Random.Range(minZ, maxZ)), transform.rotation);
+        // ship starts moving
         ship.GetComponent<AlienShip>().StartMoving(this.shipDirection);
         spawnAmount--;
-        // wait between 3 and 6 seconds for spawning
+        // wait between 3 and 6 seconds for spawning again
         spawnTime = Random.Range(3.0f, 6.0f);
-        //Start the spawn again
+        //Start the spawn again if there's more ships to go
         if (spawnAmount > 0)
         {
             StartCoroutine(SpawnShips(spawnTime, spawnAmount, wave));

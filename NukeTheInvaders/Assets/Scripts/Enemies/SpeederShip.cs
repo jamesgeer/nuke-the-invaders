@@ -21,10 +21,6 @@ public class SpeederShip : AlienShip
             Destroy(gameObject);
         } 
     }
-	public override void OnDestroy()
-	{
-        // add functionality
-	}
 	public override void StartMoving(Vector3 shipDirection)
 	{
         rb = GetComponent<Rigidbody>();
