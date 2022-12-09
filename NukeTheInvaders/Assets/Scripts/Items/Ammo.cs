@@ -42,6 +42,8 @@ public class Ammo : MonoBehaviour
 	
 	void OnDestroy()
 	{
+		// this makes sure the rocket explosion doesn't get instantiated after a player loses the game
+		if (!this.gameObject.scene.isLoaded) return;
 		GameObject explosion = Instantiate(explode, transform.position, transform.rotation);
 		// Making sure the explosion also gets removed after a while, to clear the light effect leftover
 		Destroy(explosion, removeTime);
