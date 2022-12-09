@@ -45,12 +45,12 @@ public class Player : MonoBehaviour
 	 */
 	public void refillInfiniteAmmo(int amount)
 	{
-		_inventory.AddToInventory(infiniteAmmo, amount);
+		inventory.AddToInventory(infiniteAmmo, amount);
     }
     
 	private void incrementInfiniteAmmo()
     {
-		_inventory.AddToInventory(infiniteAmmo, 1);
+		inventory.AddToInventory(infiniteAmmo, 1);
     }
 
 }
