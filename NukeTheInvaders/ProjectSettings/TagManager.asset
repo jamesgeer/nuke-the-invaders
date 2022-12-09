@@ -8,6 +8,11 @@ TagManager:
   - ShipDestination
   - Enemy
   - GameManager
+  - WaveManager
+  - WaveStarter
+  - MusicManager
+  - PowerUpManager
+  - Weapon
   layers:
   - Default
   - TransparentFX

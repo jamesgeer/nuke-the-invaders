@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour
     private void FireAmmo(GameObject ammoGameObject)
     {
         // play shooting sound
-        AudioSource.PlayClipAtPoint(shootSound, transform.position, 0.4f);
+        AudioSource.PlayClipAtPoint(shootSound, transform.position, 0.2f);
                 
         // instantiate the projectile as game object (also make it point forward)
         // GameObject projectile = Instantiate(ammoObject, transform.position, transform.rotation * Quaternion.Euler(90f, 0f, 0f));
