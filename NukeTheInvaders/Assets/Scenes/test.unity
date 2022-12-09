@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 171527776781687000, guid: 67a7e24bd17106e44b96414cadeb93f0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 171527776781687000, guid: 67a7e24bd17106e44b96414cadeb93f0, type: 3}
       propertyPath: m_TagString
@@ -564,7 +564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250692802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 291.83, y: 0.46, z: 198.84}
+  m_LocalPosition: {x: 291.83, y: 0.46, z: 195.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -612,7 +612,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory:
-    slots: []
+    slots:
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
+    - item: {fileID: 0}
+      quantity: 0
 --- !u!114 &396323163 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2593250720444749963, guid: f270d9e1cb68b427697055eb989961a8, type: 3}
@@ -1630,6 +1650,10 @@ PrefabInstance:
       propertyPath: inventoryHolder
       value: 
       objectReference: {fileID: 250692811}
+    - target: {fileID: 6360622451715475520, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
+      propertyPath: slotsUI.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6360622451715475534, guid: 43a03512d1d44418391a1fb7c15bf639, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2366,7 +2390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8505077812268350510, guid: 61f7e9a6ea8506243baae602c20f9c2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 204.9
+      value: 215.91
       objectReference: {fileID: 0}
     - target: {fileID: 8505077812268350510, guid: 61f7e9a6ea8506243baae602c20f9c2b, type: 3}
       propertyPath: m_LocalRotation.w

@@ -18,32 +18,25 @@ public class Player : MonoBehaviour
 	
 	// player token getter
 	public PlayerToken PlayerToken => playerToken;
-	
-	/**
-	 * must be awake as otherwise when classes like the gun
-	 * tries to access the inventory variables it will be null
-	 */
-	private void Awake()
+
+	private void Start()
 	{
 		// get the inventory assigned to the player
 		inventoryHolder = GetComponent<InventoryHolder>();
 		inventory = inventoryHolder.Inventory;
 		playerToken = GetComponent<PlayerToken>();
 
-        if (infiniteAmmo)
-        {
-	        inventory.AddToInventory(infiniteAmmo, 10);
-        }
+		if (infiniteAmmo)
+		{
+			inventory.AddToInventory(infiniteAmmo, 10);
+		}
 
-        // see if a starting item has been assigned to the player
-        if (startItem != null && startItemAmount > 0)
-        {
-	        inventory.AddToInventory(startItem, startItemAmount);
-        }
-	}
-
-	private void Start()
-	{
+		// see if a starting item has been assigned to the player
+		if (startItem != null && startItemAmount > 0)
+		{
+			inventory.AddToInventory(startItem, startItemAmount);
+		}
+		
 		// refill ammo run every 10secs
 		InvokeRepeating(nameof(RefillInfiniteAmmo), 10f, 10f);
 	}
