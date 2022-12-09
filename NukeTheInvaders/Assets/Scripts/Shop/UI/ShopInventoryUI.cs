@@ -82,7 +82,7 @@ public class ShopInventoryUI : MonoBehaviour
     public void SlotClicked(ShopInventorySlotUI clickedUISlot)
     {
         // no action if slot is empty
-        if (clickedUISlot.AssignedInventorySlot.ShopItem.item == null) return;
+        if (clickedUISlot.AssignedInventorySlot.ShopItem == null) return;
 
         // shop item clicked
         var shopItem = clickedUISlot.AssignedInventorySlot.ShopItem;
