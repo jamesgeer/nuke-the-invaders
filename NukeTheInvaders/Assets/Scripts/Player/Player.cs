@@ -50,4 +50,5 @@ public class Player : MonoBehaviour
 	{
 		_inventory.AddToInventory(infiniteAmmo, 1);
 	}
+
 }

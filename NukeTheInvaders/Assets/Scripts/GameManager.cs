@@ -76,4 +76,17 @@ public class GameManager : MonoBehaviour
             endGame(false);
         }
     }
+
+    void Update()
+    {
+        TriggerEvent();
+    }
+
+    private void TriggerEvent()
+    {
+        if (Input.GetButtonDown("Quit"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }
