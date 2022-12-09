@@ -10,7 +10,7 @@ public class LifePowerup : MonoBehaviour
     void Start()
     {
         powerupManager = GameObject.FindGameObjectWithTag("PowerUpManager");
-        Destroy(transform.root.gameObject, 10);
+        Destroy(transform.root.gameObject, 15);
     }
 
 	private void OnTriggerEnter(Collider other)

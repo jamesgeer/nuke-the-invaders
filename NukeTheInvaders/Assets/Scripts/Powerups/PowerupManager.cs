@@ -29,18 +29,18 @@ public class PowerupManager : MonoBehaviour
         yield return new WaitForSeconds(4);
         var random = Random.Range(0.0f, 1.0f);
         // 25% chance to spawn a powerup
-        //if (random <= 0.25f) {
+        if (random <= 0.25f) {
             // same chance for all powerup types to spawn
             random = Random.Range(0.0f, 1.0f);
             int j = Random.Range(0, 3);
             if (random < 0.5f)
             {
-                Instantiate(ammoPowerup, spawnLocations[j], lifePowerup.transform.rotation);
+                Instantiate(lifePowerup, spawnLocations[j], lifePowerup.transform.rotation);
             }
             else {
                 Instantiate(ammoPowerup, spawnLocations[j], ammoPowerup.transform.rotation);
             }
-        //}
+        }
     }
 
     public void increaseLife() {
