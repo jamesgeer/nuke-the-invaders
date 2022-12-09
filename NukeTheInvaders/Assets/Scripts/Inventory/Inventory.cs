@@ -154,4 +154,34 @@ public class Inventory
         freeSlot = null;
         return false;
     }
+
+    public bool HasSpaceForItem(InventoryItem item, int amountToAdd)
+    {
+        int spaceAvailable = 0;
+        // check if the inventory already contains this item and if so,
+        // see if there is space left in the stack
+        if (ContainsItem(item, out List<InventorySlot> slotsWithItem))
+        {
+            // loop over our slots that contain the item and add up available space
+            foreach (var slot in slotsWithItem)
+            {
+                spaceAvailable += slot.RemainingStackSpace();
+        
+                // terminate loop early if condition true
+                if (spaceAvailable >= amountToAdd)
+                {
+                    return true;
+                }
+            }
+        }
+        
+        // all stacks containing the item are full so check if the inventory has any empty slots to fill
+        if (HasFreeSlot(out InventorySlot freeSlot))
+        {
+            return true;
+        }
+
+        // no space for this item
+        return false;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,42 +7,40 @@ using TMPro;
 public class Weapon : MonoBehaviour
 {
     // ammo objects that this weapon will be firing
-    [SerializeField] private GameObject RegularAmmoObject;
-    [SerializeField] private GameObject InfiniteAmmoObject;
+    [SerializeField] private GameObject regularAmmoObject;
+    [SerializeField] private GameObject infiniteAmmoObject;
 
     // which ammo this weapon can use
     [SerializeField] private InventoryItem ammoType;
 
     // rocket launch sound
     [SerializeField] public AudioClip shootSound;
-
-    private GameObject _playerGameObject;
-    private Player _player;
-    private Inventory _inventory;
-    private InventoryItem _infiniteAmmo;
-
-    private void Start()
-    {
-        // player object
-        _playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        
-        // player class from player object
-        _player = _playerGameObject.GetComponent<Player>();
-        
-        // player inventory
-        _inventory = _player.Inventory;
-        
-        // infinite ammo
-        if (_player.InfiniteAmmo)
-        {
-            _infiniteAmmo = _player.InfiniteAmmo;
-        }
-    }
     
+    private Inventory inventory;
+    private InventoryItem infiniteAmmo;
+
     // listen for trigger events (e.g. clicking the mouse to shoot)
     void Update()
     {
         TriggerEvent();
+    }
+
+    private void CheckInventory()
+    {
+         if (inventory == null)
+         {
+             // player object
+            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    
+            // player inventory
+            inventory = player.Inventory;
+    
+            // infinite ammo
+            if (player.InfiniteAmmo)
+            {
+                infiniteAmmo = player.InfiniteAmmo;
+            }
+        }
     }
     
     private void TriggerEvent()
@@ -49,17 +48,20 @@ public class Weapon : MonoBehaviour
         // left mouse click
         if (Input.GetButtonDown("Fire1"))
         {
+
+           CheckInventory();
+            
             // if player has any regular ammo, shoot that
-            if (_inventory.TakeFromInventory(ammoType, 1))
+            if (inventory.TakeFromInventory(ammoType, 1))
             {
-                FireAmmo(RegularAmmoObject);
+                FireAmmo(regularAmmoObject);
             }
             // out of regular ammo, see if they have any infinite, replenishing ammo to use
             else
             {
-                if (_infiniteAmmo && _inventory.TakeFromInventory(_infiniteAmmo, 1))
+                if (infiniteAmmo && inventory.TakeFromInventory(infiniteAmmo, 1))
                 {
-                    FireAmmo(InfiniteAmmoObject);
+                    FireAmmo(infiniteAmmoObject);
                 }
             }
         }
