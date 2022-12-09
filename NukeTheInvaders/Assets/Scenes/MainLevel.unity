@@ -16943,6 +16943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifePowerup: {fileID: 7447670730958197078, guid: f960fdd8584930d4988854c40f759d5d, type: 3}
+  ammoPowerup: {fileID: 589682455226735279, guid: f4b9b029087c82b4bbd9778730230598, type: 3}
 --- !u!1001 &1190423772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21071,13 +21072,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b05b3f7899c8c9f4390b47f96dbe3f3f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
