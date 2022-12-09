@@ -1,13 +1,11 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 /**
  * our inventory ui/window/hotbar for the frontend
  * marries the slot data from the frontend with the backend
  */
-public class ShopInventoryUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ShopInventoryUI : MonoBehaviour
 {
     // the holder of our inventory (player/npc/object/etc)
     [SerializeField] private ShopInventoryHolder shopInventoryHolder; 
@@ -91,24 +89,5 @@ public class ShopInventoryUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         // player wants to purchase clicked shop item
         shopInventory.SellItem(player, shopItem);
-    }
-    
-    /**
-     * disable weapon from firing while hovering over the shop inventory
-     */
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        GameObject.FindWithTag("Weapon").GetComponent<Weapon>().enabled = false;
-    }
-    
-    /**
-     * enable weapon once mouse is outside of shop inventory
-     */
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        // prevent the weapon from enabling while hovering over inventory slots
-        if (!eventData.fullyExited) return;
-
-        GameObject.FindWithTag("Weapon").GetComponent<Weapon>().enabled = true;
     }
 }
