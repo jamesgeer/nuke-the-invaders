@@ -57,7 +57,7 @@ public class ShopInventorySlotUI : MonoBehaviour
     public void UpdateUISlot(ShopInventorySlot slot)
     {
         // make sure slot has an item
-        if (slot.ShopItem.item != null)
+        if (slot.ShopItem != null)
         {
             // display item sprite and changes slot color in the ui
             itemSprite.sprite = slot.ShopItem.item.icon;

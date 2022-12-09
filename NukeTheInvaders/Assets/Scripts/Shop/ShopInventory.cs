@@ -49,4 +49,33 @@ public class ShopInventory
         // item successfully sold
         return true;
     }
+    
+    private bool HasFreeSlot(out ShopInventorySlot freeSlot)
+    {
+        // loop over our inventory sots
+        foreach (var slot in slots)
+        {
+            if (slot.ShopItem == null)
+            {
+                freeSlot = slot;
+                return true;
+            }
+        }
+
+        freeSlot = null;
+        return false;
+    }
+    
+    public bool AddToInventory(ShopInventoryItem item)
+    {
+        // add item to first free slot
+        if (HasFreeSlot(out ShopInventorySlot freeSlot))
+        {
+            freeSlot.AddItemToSlot(item);
+            onSlotChange?.Invoke(freeSlot);
+            return true;
+        }
+
+        return false;
+    }
 }

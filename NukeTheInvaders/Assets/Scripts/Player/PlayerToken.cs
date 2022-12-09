@@ -46,6 +46,6 @@ public class PlayerToken : MonoBehaviour
      */
     public bool CanAfford(int itemCost)
     {
-        return tokensHeld - itemCost < 1;
+        return tokensHeld - itemCost > 0;
     }
 }
